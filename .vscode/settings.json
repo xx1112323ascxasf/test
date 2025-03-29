@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ACTUAL CORE.sln"
+    "dotnet.defaultSolution": "123123123.sln"
 }
