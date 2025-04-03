@@ -1,7 +1,7 @@
-﻿using NaughtyAttributes;
+using NaughtyAttributes;
 using UnityEngine;
 
-namespace VHS
+namespace Marchenkostuff
 {    
     public class CameraController : MonoBehaviour
     {
