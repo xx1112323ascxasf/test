@@ -13,7 +13,6 @@ namespace Marchenkostuff
             bool m_zoomReleased;
         #endregion
 
-        //(Vector2): Stores the camera look/movement input (typically mouse/touch input) 
         #region Properties
             public Vector2 InputVector => m_inputVector;
             public float InputVectorX
@@ -44,7 +43,7 @@ namespace Marchenkostuff
                 set => m_zoomReleased = value;
             }
         #endregion
-        // Resets all input values to their default states (zeros and false) 
+
         #region Custom Methods
             public void ResetInput()
             {
