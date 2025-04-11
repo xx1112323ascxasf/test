@@ -1,0 +1,6 @@
+используется PascalCase  
+  
+в том числе, условно, private variable это буедет m_isZooming 
+а публичные классы нужно с большой буквы
+
+https://github.com/ktaranov/naming-convention/blob/master/C%23%20Coding%20Standards%20and%20Naming%20Conventions.md
