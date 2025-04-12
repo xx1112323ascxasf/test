@@ -1,7 +1,0 @@
-//удобнее так, т.к не надо все hardcoding каждый раз в духе 
-
-            // public bool IsZooming
-            // {
-            //     get => m_isZooming;
-            //     set => m_isZooming = value;
-            // }

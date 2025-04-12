@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf1e354b4cc6304587d048029f9de3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 71ee1599e975dd54e85fb854f7920962, type: 3}
   m_Name: PerlinNoiseData
   m_EditorClassIdentifier: 
-  transformTarget: 0
-  amplitude: 0
-  frequency: 0
+  transformTarget: 1
+  amplitude: 1
+  frequency: 0.5

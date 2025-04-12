@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using NaughtyAttributes;
 
-// в целом для более иммерсивного движение башки от первого лица
-namespace Marchenkostuff 
+namespace VHSMarchenko
 {
     [CreateAssetMenu(fileName = "HeadBobData", menuName = "FirstPersonController/Data/HeadBobData", order = 3)]
-    
     public class HeadBobData : ScriptableObject
     {
         #region Variables    

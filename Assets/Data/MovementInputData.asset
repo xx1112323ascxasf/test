@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c1e875e3638a384c988d11d77d40697, type: 3}
+  m_Script: {fileID: 11500000, guid: f17a71d163146b34fa25ab4a7d5749a6, type: 3}
   m_Name: MovementInputData
   m_EditorClassIdentifier: 

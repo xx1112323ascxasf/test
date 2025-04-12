@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Marchenkostuff
+namespace VHSMarchenko
 {
     
     [CreateAssetMenu(fileName = "CameraInputData", menuName = "FirstPersonController/Data/CameraInputData", order = 0)]

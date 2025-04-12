@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Marchenkostuff
+namespace VHSMarchenko
+
 {
     public enum TransformTarget
     {
