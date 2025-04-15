@@ -20,7 +20,8 @@ namespace VHSMarchenko
                 [Space,Header("Look Settings")]
                 [SerializeField] private Vector2 sensitivity = Vector2.zero;
                 [SerializeField] private Vector2 smoothAmount = Vector2.zero;  // Smoothing factors for rotation 
-                [SerializeField] [MinMaxSlider(-90f,90f)] private Vector2 lookAngleMinMax = Vector2.zero;  // Clamps vertical look angles between -90 and 90 degrees (using NaughtyAttributes slider)
+                [SerializeField] [MinMaxSlider(-90f,90f)] private Vector2 lookAngleMinMax = Vector2.zero;  // Clamps vertical look angles 
+                // between -90 and 90 degrees (using NaughtyAttributes slider)
 
             #endregion
 
