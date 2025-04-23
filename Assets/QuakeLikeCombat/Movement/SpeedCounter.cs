@@ -24,4 +24,5 @@ public class SpeedCalculator : MonoBehaviour
         // (Optional) Debug
         Debug.Log("Speed: " + speed.ToString("F2") + " units/sec");
     }
+
 }
