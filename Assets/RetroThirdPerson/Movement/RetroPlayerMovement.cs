@@ -14,6 +14,23 @@ namespace RetroMovement
         float backSpeed = 0.5f; 
         float turnSpeed = 150f; 
 
+        float horizontalInput;
+        float verticalInput;
+
+        public bool isWalking;
+        bool runPressed;
+        public bool isRunning;
+
+        //reference
+        Player player;
+        CharacterController characterController;
+        GameObject gameCamera; 
+
+        void Start()
+        {
+            player = GetComponent<Player>(); 
+        }
+
     }
 
 
