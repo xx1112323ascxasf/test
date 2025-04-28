@@ -1,7 +1,9 @@
 using UnityEngine;
 
-namespace RetroMovement
+namespace RetroThirdPerson
 {
+
+
     public class RetroPlayerMovement
     {
         //movement speeds 
@@ -22,16 +24,15 @@ namespace RetroMovement
         public bool isRunning;
 
         //reference
-        Player player;
-        CharacterController characterController;
-        GameObject gameCamera; 
+        // Player player;
+        // CharacterController characterController;
+        // GameObject gameCamera; 
 
         void Start()
         {
-            player = GetComponent<Player>(); 
+            // player = GetComponent<player>; 
         }
 
     }
-
 
 }
