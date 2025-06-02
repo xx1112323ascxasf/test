@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RetroThirdPerson
 {
-    #region Data/Reference
+    #region  Stuff
     public class CharacterMovement : MonoBehaviour
     {
         [Header("Reference")]
@@ -10,9 +10,9 @@ namespace RetroThirdPerson
         public Transform modelTrans;
         public CharacterMovement characterController;
     }
+
     #endregion
 
-    #region Movemet
 
     
 }
