@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
 public class TankMovement : MonoBehaviour
 
@@ -25,7 +26,7 @@ public class TankMovement : MonoBehaviour
     public bool isRunning;
 
     //Reference
-    //Player player;
+    Player player;
     CharacterController characterController;
     GameObject gameCamera;
     
@@ -38,7 +39,29 @@ public class TankMovement : MonoBehaviour
 
     void Update()
     {
-        
+        player = GetComponent<Player>();
+        characterController = GetComponent<CharacterController>();
+        //может вызывать ошибки
+        GameObject gameCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+
+        if (!player.stopInput)
+        {
+            if (tankControls)
+            {
+                float h = horizontalInput * Time.deltaTime * turnSpeed;
+                float v = verticalInput * Time.deltaTime * speed;
+
+                Move(h, v);
+            }
+        }
+        else
+        {
+            float h = horizontalInput * Time.deltaTime * speed;
+            float v = verticalInput * Time.deltaTime * speed;
+
+            Move(h, v);
+        }
+
     }
 
 }
