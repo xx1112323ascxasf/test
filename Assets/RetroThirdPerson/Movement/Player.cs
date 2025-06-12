@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace RetroThirdPerson
 {
-    public bool isDead;
-    public bool isAaiming;
-    public bool stopInput;
+        public class Player : MonoBehaviour
+    {
+        public bool isDead;
+        public bool isAaiming;
+        public bool stopInput;
+    }
 }
