@@ -1,3 +1,4 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
@@ -81,18 +82,18 @@ public class TankMovement : MonoBehaviour
         {
             if (tankControls)
             {
-                float h = horizontalInput * Time.deltaTime * turnSpeed;
-                float v = verticalInput * Time.deltaTime * speed;
+                float he = horizontalInput * Time.deltaTime * turnSpeed;
+                float ve = verticalInput * Time.deltaTime * speed;
 
-                Move(h, v);
+                Move(he, ve);
             }
         }
         else
         {
-            float h = horizontalInput * Time.deltaTime * speed;
-            float v = verticalInput * Time.deltaTime * speed;
+            float he = horizontalInput * Time.deltaTime * speed;
+            float ve = verticalInput * Time.deltaTime * speed;
 
-            Move(h, v);
+            Move(he, ve);
         }
 
 
@@ -112,7 +113,6 @@ public class TankMovement : MonoBehaviour
                 movingForward = false;
                 movingBackward = true;
             }
-            else
             {
                 movingForward = true;
             }
@@ -136,5 +136,19 @@ public class TankMovement : MonoBehaviour
             isRunning = false;
             speed = walkSpeed;
         }
-    }  
+    }
+
+    void Move(float he, float ye)
+    {
+        if (tankControls)
+        {
+            Vector3 move = new Vector3(0, 0, verticalInput);
+            move = transform.TransformDirection(move);
+            move.y -= gravity * Time.deltaTime;
+            characterController.Move(move);
+
+            Vector3 turn = new Vector3(0, he, 0);
+            transform.Rotate(turn);
+        }
+    }
 }
