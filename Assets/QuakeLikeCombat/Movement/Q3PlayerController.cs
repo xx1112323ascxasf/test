@@ -43,7 +43,6 @@ namespace Q3Movement
         /// Returns player's current speed.
         /// </summary>
         public float Speed { get { return m_Character.velocity.magnitude; } }
-
         private CharacterController m_Character;
         private Vector3 m_MoveDirectionNorm = Vector3.zero;
         private Vector3 m_PlayerVelocity = Vector3.zero;
