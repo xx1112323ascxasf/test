@@ -92,7 +92,7 @@ namespace Q3Movement
             m_Character.Move(m_PlayerVelocity * Time.deltaTime);
         }
 
-        // Queues the next jump.
+        
         private void QueueJump()
         {
             if (m_AutoBunnyHop)
@@ -112,7 +112,7 @@ namespace Q3Movement
             }
         }
 
-        // Handle air movement.
+      
         private void AirMove()
         {
             float accel;
