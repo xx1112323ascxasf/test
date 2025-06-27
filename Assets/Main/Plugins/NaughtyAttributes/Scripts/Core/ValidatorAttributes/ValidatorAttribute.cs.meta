@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: 5fac74a9575c45342be1e6dda45610ad
-timeCreated: 1508151410
-licenseType: Store
+guid: 0f3c43bed2dbc5249b6c6ec7859c2020
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -11,3 +9,10 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 129996
+  packageName: NaughtyAttributes
+  packageVersion: 2.1.4
+  assetPath: Assets/Main/Plugins/NaughtyAttributes/Scripts/Core/ValidatorAttributes/ValidatorAttribute.cs
+  uploadId: 480834

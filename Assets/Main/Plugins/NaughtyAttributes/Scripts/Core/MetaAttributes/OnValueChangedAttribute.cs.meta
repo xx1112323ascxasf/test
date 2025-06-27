@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: a144cdc17b6e4cf4f86692ae1dc7e4d7
-timeCreated: 1508610277
-licenseType: Store
+guid: e16a27c5576022b4bbe997c7db9051f0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -11,3 +9,10 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 129996
+  packageName: NaughtyAttributes
+  packageVersion: 2.1.4
+  assetPath: Assets/Main/Plugins/NaughtyAttributes/Scripts/Core/MetaAttributes/OnValueChangedAttribute.cs
+  uploadId: 480834

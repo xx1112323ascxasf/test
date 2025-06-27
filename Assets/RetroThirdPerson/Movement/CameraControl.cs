@@ -13,7 +13,7 @@ public class CameraContol : MonoBehaviour
     private float _rotationX;
 
     [SerializeField]
-    private Transform _Target;
+    private Transform _target;
 
     [SerializeField]
     private float _distanceFromTarger = 3.0f;
@@ -39,7 +39,7 @@ public class CameraContol : MonoBehaviour
         _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
         transform.localEulerAngles = _currentRotation;
 
-        transform.position = _Target.position = transform.forward * _distanceFromTarger;
+        transform.position = _target.position - transform.forward * _distanceFromTarger;
     }
 
 

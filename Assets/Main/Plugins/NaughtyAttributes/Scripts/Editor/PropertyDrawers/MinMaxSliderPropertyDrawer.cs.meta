@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 27011af81554b5b4489b155f09275475
-timeCreated: 1508427131
-licenseType: Store
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -11,3 +9,10 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 129996
+  packageName: NaughtyAttributes
+  packageVersion: 2.1.4
+  assetPath: Assets/Main/Plugins/NaughtyAttributes/Scripts/Editor/PropertyDrawers/MinMaxSliderPropertyDrawer.cs
+  uploadId: 480834

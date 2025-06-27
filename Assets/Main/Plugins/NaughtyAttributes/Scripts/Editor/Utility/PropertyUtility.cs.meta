@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: e2d50a3c7c8a9754cb3936216494be66
-timeCreated: 1508153828
-licenseType: Store
+guid: 312eedcb79c7a5542b87c0b848e3e2fa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -11,3 +9,10 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 129996
+  packageName: NaughtyAttributes
+  packageVersion: 2.1.4
+  assetPath: Assets/Main/Plugins/NaughtyAttributes/Scripts/Editor/Utility/PropertyUtility.cs
+  uploadId: 480834
