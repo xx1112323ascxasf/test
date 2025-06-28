@@ -10,7 +10,8 @@ namespace RetroThirdPerson
 {
         public float forwardSpeed = 6f;
         public float sidewaysSpeed = 4f; 
-
+        //заставить это работать
+        private Vector3 moveDirection = Vector3.zero;
         private Rigidbody rb;
 
         void Start()
