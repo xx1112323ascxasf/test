@@ -7,11 +7,12 @@ namespace RetroThirdPerson
 {
 
     public class ThirdPersonMovement : MonoBehaviour
-{
+    {
         public float forwardSpeed = 6f;
-        public float sidewaysSpeed = 4f; 
+        public float sidewaysSpeed = 4f;
         //заставить это работать
-        private Vector3 moveDirection = Vector3.zero;
+        public Transform cameraTransform;
+        private Vector3 moveHorizontal = Vector3.zero;
         private Rigidbody rb;
 
         void Start()
@@ -21,17 +22,10 @@ namespace RetroThirdPerson
 
         void Update()
         {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
 
-            
-            float x = moveHorizontal * sidewaysSpeed;
-            float z = moveVertical * forwardSpeed;
-
-            Vector3 movement = new Vector3(x, 0f, z);
-
-            rb.linearVelocity = movement; 
         }
     }
-    
-}
+
+}   
+
+

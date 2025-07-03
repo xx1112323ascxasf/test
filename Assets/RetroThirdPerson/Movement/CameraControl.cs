@@ -21,6 +21,7 @@ public class CameraContol : MonoBehaviour
     private Vector3 _currentRotation;
     private Vector3 _smoothVelocity = Vector3.zero;
 
+
     [SerializeField]
     //если не понравится, вернутся в гайд это можно убрать целиком
     private float _smoothTime = 0.3f;
