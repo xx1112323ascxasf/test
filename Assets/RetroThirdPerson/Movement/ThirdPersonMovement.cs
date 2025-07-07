@@ -6,9 +6,10 @@ namespace RetroThirdPerson
     public class ThirdPersonMovement : MonoBehaviour
     {
         Transform cam;
-        public float speed = 2;
-        public float forwardSpeed = 6f;
+        public float speed = 40f;
+        public float forwardSpeed = 10f;
         public float sidewaysSpeed = 4f;
+
 
         private Rigidbody rb;
 
@@ -22,16 +23,22 @@ namespace RetroThirdPerson
             Vector3 forwardMovement = cam.forward * Input.GetAxis("Vertical");
             Vector3 horizontalMovement = cam.right * Input.GetAxis("Horizontal");
 
-            Vector3 movement = Vector3.ClampMagnitude(forwardMovement + horizontalMovement, 1);
+            Vector3 movement = Vector3.ClampMagnitude( forwardMovement + horizontalMovement, 1);
       
             //movement
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
 
+
+
+            //Vector3 tempVect = new Vector3(h, 0, v);
+            //tempVect = tempVect.normalized * speed * Time.deltaTime;
+            //rb.MovePosition(transform.position + tempVect); 
+
             float x = h * sidewaysSpeed;
             float z = v * forwardSpeed;
 
-            Vector3 move = new Vector3(x, rb.linearVelocity.y, z); // сохраняем вертикальную скорость21
+            Vector3 move = new Vector3(x, speed * rb.linearVelocity.y, z); 
 
             rb.linearVelocity = movement;
             
