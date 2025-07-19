@@ -11,7 +11,7 @@ public class testMovement : MonoBehaviour
     void Start()
     {
         //rb = GetComponent<Rigidbody>(); 
-        rbMovement = gameObject.transform.position.x
+        rbMovement = gameObject.transform.position.x;
     }
     void FixedUpdate()
     {
