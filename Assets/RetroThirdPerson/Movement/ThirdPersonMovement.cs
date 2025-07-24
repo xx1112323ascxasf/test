@@ -5,35 +5,23 @@ namespace RetroThirdPerson
     [RequireComponent(typeof(Rigidbody))]
     public class ThirdPersonMovement : MonoBehaviour
     {
-        Transform cam;
-        public float speed = 40f;
-        public float forwardSpeed = 10f;
-        public float sidewaysSpeed = 4f;
 
 
         private Rigidbody rb;
 
+
         void Start()
         {
-            cam = Camera.main.transform;
             rb = GetComponent<Rigidbody>();
+            if (rb == null)
+            {
+                Debug.LogError("NoRigitBoddy");
+            }
+
         }
+
         void FixedUpdate()
         {
-            Vector3 forwardMovement = cam.forward * Input.GetAxis("Vertical");
-
-            Vector3 movement = Vector3.ClampMagnitude( forwardMovement  , 1);
-      
-            //movement
-            float h = Input.GetAxis("Horizontal");
-
-
-
-            float x = h * sidewaysSpeed;
-
-            Vector3 move = new Vector3(x, speed * rb.linearVelocity.y); 
-
-            rb.linearVelocity = movement;
             
         }
     }

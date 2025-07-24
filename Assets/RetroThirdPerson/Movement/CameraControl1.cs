@@ -23,7 +23,6 @@ public class CameraContol : MonoBehaviour
 
 
     [SerializeField]
-    //если не понравится, вернутся в гайд это можно убрать целиком
     private float _smoothTime = 0.3f;
 
     void Update()
