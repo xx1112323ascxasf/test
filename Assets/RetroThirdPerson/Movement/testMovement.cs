@@ -4,7 +4,11 @@ public class PlayerMovementNoJump : MonoBehaviour
 {
     public CharacterController controller;
     public float moveSpeed = 5f;
-    public float gravity = 9.81f; 
+    public float gravity = 9.81f;
+
+    float facing = Camera.main.transform.eulerAngles.y;
+    
+    // hype
 
     private Vector3 velocity;
 
