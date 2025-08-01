@@ -12,6 +12,7 @@ public class CameraContol : MonoBehaviour
     private float _rotationY;
     private float _rotationX;
 
+    
     [SerializeField]
     private Transform _target;
 
