@@ -22,12 +22,20 @@ public class PlayerMovementNoJump : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
+        //cameraconnecton
+        float cameraFacing = mainCamera.transform.eulerAngles.y;
+
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        //0 vector movementa
-        float cameraFacing = mainCamera.transform.eulerAngles.y;
+        Vector3 inputVector = new Vector3(horizontalInput, 0, verticalInput);
+        Vector3 turnedInputVector = Quaternion.Euler(0, cameraFacing, 0) * inputVector;
+        //inputDirection.transform.LookAt(turnedInputVector);
+        
+
+
+
        
 
         Vector3 moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
