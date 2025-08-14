@@ -20,6 +20,14 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensivityX;
+        float mouseY = Input.GetAxisRaw("MOuse Y") * Time.deltaTime * sensivityY;
+
+        yRotation += mouseX;
+        xRotation -= mouseY;
+
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        transform.rotation = Quaternion.Euler(0, yRotation, 0);
         
     }
 }
