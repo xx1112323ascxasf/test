@@ -24,7 +24,7 @@ namespace FirstPerson
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensivityY;
 
             yRotation += mouseX;
-            xRotation += mouseY;
+            xRotation -= mouseY;
             xRotation = Math.Clamp(xRotation, -90f, 90f);
 
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
