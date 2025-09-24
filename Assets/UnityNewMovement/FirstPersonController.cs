@@ -1,17 +1,22 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.InputSystem
 
 namespace FirstPersonMovement
 {
     public class FirstPersonController : MonoBehaviour
     {
-        [Header("Variables")]
-        private GameInput _gameInput;
-        private Rigidbody rg;
-        public float moveSpeed = 10f; 
-         
-        
 
+        private Rigidbody sphereRigitbody;
+
+        private void Awake()
+        {
+            sphereRigitbody = GetComponent<Rigidbody>();
+        }
+        private void Jump()
+        {
+            sphereRigitbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+        }
 
 
     }
