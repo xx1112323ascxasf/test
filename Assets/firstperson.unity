@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa349136244f4cb5968936e72762535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereRigitbody: {fileID: 0}
+  playerInput: {fileID: 0}
 --- !u!114 &547270975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +709,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 65013b9b-cd40-4623-bf51-454bcdae881f
     m_ActionName: Dialogue/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c8204bba-63aa-42a8-bbd7-ea3914702db1
+    m_ActionName: 'Gameplay/Movement[/Keyboard/w,/Keyboard/anyKey,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
