@@ -1,22 +1,15 @@
 using UnityEngine;
-public class FPCamera : MonoBehaviour
+using Unity.Cinemachine;
+
+public class FPCamera : CinemachineExtension
 
 
 {
-    public float turnSpeed = 5.0f;
-    public Transform player;
 
-    private Vector3 offset;
-
-    void Start()
+ 
+    protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
     {
-        offset = new Vector3(player.position.x, player.position.y + 8.0f, player.position.z + 7.0f);
+        //base.PostPipelineStageCallback(vcam, stage, ref state, deltaTime);
     }
 
-    void LateUpdate()
-    {
-        offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offset;
-        transform.position = player.position + offset;
-        transform.LookAt(player.position);
-    }
 }
