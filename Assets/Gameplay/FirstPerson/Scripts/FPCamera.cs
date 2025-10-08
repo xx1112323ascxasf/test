@@ -6,10 +6,37 @@ public class FPCamera : CinemachineExtension
 
 {
 
- 
-    protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
+    public Transform orientation;
+    public Transform player;
+    public Transform PlayerObj;
+    public Rigidbody fpRigitBody;
+
+    public float rotationSpeed;
+
+    private void Start()
     {
-        //base.PostPipelineStageCallback(vcam, stage, ref state, deltaTime);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
+
+    private void Update()
+    {
+
+        // orientation rotate
+        
+        Vector3 viewDir = new Vector3(transform.position.x, player.position.y, transform.position.z);
+        
+        orientation.forward = viewDir.normalized;
+
+        // rotate player object
+
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+        Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        if (inputDir != Vector3.zero)
+            PlayerObj.forward = Vector3.Slerp(PlayerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+    }
+    
 
 }
