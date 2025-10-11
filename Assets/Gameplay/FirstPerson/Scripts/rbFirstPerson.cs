@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class rbFirstPerson : MonoBehaviour
 {
@@ -20,6 +19,8 @@ public class rbFirstPerson : MonoBehaviour
 
         fpRigitBody.freezeRotation = true;
 
+        
+
     }
 
     private void FixedUpdate()
@@ -29,6 +30,7 @@ public class rbFirstPerson : MonoBehaviour
     private void Update()
     {
         MyInput();
+        
     }
 
     private void MyInput()
