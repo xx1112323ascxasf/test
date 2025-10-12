@@ -9,5 +9,6 @@ EditorBuildSettings:
     path: Assets/Gameplay/123123.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: b22ca9d6af510b988bf2fbaf6e9465ef, type: 3}
+    com.unity.input.settings: {fileID: 11400000, guid: a03ece5072467598481b52fc86b472c2, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: af570c04b2a3259bda9e4c297bce0530, type: 3}
   m_UseUCBPForAssetBundles: 0
