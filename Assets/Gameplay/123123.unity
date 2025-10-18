@@ -452,6 +452,7 @@ GameObject:
   - component: {fileID: 312051965}
   - component: {fileID: 312051964}
   - component: {fileID: 312051963}
+  - component: {fileID: 312051966}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -485,7 +486,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 312051964}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 335d86a9-6a27-4dae-a193-6ad5ef52f5e5
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow,/ThrustmasterThrustmasterT300RSRacingwheel/Stick,/WeekinKinesis360SystemControl/stick]'
   - m_PersistentCalls:
@@ -570,8 +583,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.Movement
   fire: {fileID: -5619373652669250489, guid: af570c04b2a3259bda9e4c297bce0530, type: 3}
-  move: {fileID: 256172489084120520, guid: af570c04b2a3259bda9e4c297bce0530, type: 3}
-  force: {fileID: 0}
+  moveSpeed: 10
+  frb: {fileID: 0}
+  fmovement: {x: 0, y: 0, z: 0}
 --- !u!4 &312051965
 Transform:
   m_ObjectHideFlags: 0
@@ -588,6 +602,33 @@ Transform:
   - {fileID: 1218319360}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &312051966
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312051962}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &331945101
 GameObject:
   m_ObjectHideFlags: 0
