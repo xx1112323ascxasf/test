@@ -16,9 +16,14 @@ public class Movement : MonoBehaviour
     }
     #endregion
 
+  
     private Vector2 moveInput;
     public float moveSpeed = 10.0f;
     private Rigidbody frb;
+
+
+
+    public Vector3 direction = Vector3.right;
 
     private void Start()
     {
@@ -27,20 +32,23 @@ public class Movement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        
+      
         moveInput = context.ReadValue<Vector2>();
         Debug.Log("Move");
+  
+
+        
     }
 
     private void FixedUpdate()
-    {
+    { 
+        
+
         Vector3 movement = new Vector3(moveInput.x, 0, moveInput.y);
 
         frb.AddForce(movement * moveSpeed, ForceMode.Force);
 
-        if (movement.sqrMagnitude > 0.01f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(movement);
-            frb.MoveRotation(Quaternion.Slerp(frb.rotation, targetRotation, Time.fixedDeltaTime * 10f));
-        }
+
     }
 }
