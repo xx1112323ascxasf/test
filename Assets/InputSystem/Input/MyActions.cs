@@ -112,12 +112,12 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""MoveFoward"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""6e273463-72aa-4951-a030-e018ba09064f"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""MoveLeft"",
@@ -215,18 +215,7 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""51a2aad2-f644-4be2-81ea-bc6a07e6cab1"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveFoward"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
+                    ""name"": ""1D Axis"",
                     ""id"": ""547e4578-5d44-4252-aa30-a722f500ef3a"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
@@ -255,6 +244,17 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MobeBackward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db9ccf14-fa66-4c4c-b679-6a7d04efef4f"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveFoward"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

@@ -584,7 +584,7 @@ MonoBehaviour:
       - m_Target: {fileID: 312051969}
         m_TargetAssemblyTypeName: Movement, Assembly-CSharp
         m_MethodName: MoveForward
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -624,6 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55145542430a695b0feb7f7b487319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.Movement
+  forwardForce: 20
 --- !u!4 &312051965
 Transform:
   m_ObjectHideFlags: 0
@@ -694,6 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55145542430a695b0feb7f7b487319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  forwardForce: 20
 --- !u!1 &331945101
 GameObject:
   m_ObjectHideFlags: 0
