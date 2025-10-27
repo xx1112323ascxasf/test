@@ -138,7 +138,7 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MobeBackward"",
+                    ""name"": ""MoveBackward"",
                     ""type"": ""Button"",
                     ""id"": ""9bd195e3-b1f1-4f21-8d98-cba0a31fcacf"",
                     ""expectedControlType"": """",
@@ -243,14 +243,14 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MobeBackward"",
+                    ""action"": ""MoveBackward"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""db9ccf14-fa66-4c4c-b679-6a7d04efef4f"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -847,7 +847,7 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
         m_Player_MoveFoward = m_Player.FindAction("MoveFoward", throwIfNotFound: true);
         m_Player_MoveLeft = m_Player.FindAction("MoveLeft", throwIfNotFound: true);
         m_Player_MoveRight = m_Player.FindAction("MoveRight", throwIfNotFound: true);
-        m_Player_MobeBackward = m_Player.FindAction("MobeBackward", throwIfNotFound: true);
+        m_Player_MoveBackward = m_Player.FindAction("MoveBackward", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -946,7 +946,7 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoveFoward;
     private readonly InputAction m_Player_MoveLeft;
     private readonly InputAction m_Player_MoveRight;
-    private readonly InputAction m_Player_MobeBackward;
+    private readonly InputAction m_Player_MoveBackward;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -979,9 +979,9 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @MoveRight => m_Wrapper.m_Player_MoveRight;
         /// <summary>
-        /// Provides access to the underlying input action "Player/MobeBackward".
+        /// Provides access to the underlying input action "Player/MoveBackward".
         /// </summary>
-        public InputAction @MobeBackward => m_Wrapper.m_Player_MobeBackward;
+        public InputAction @MoveBackward => m_Wrapper.m_Player_MoveBackward;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1023,9 +1023,9 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
             @MoveRight.started += instance.OnMoveRight;
             @MoveRight.performed += instance.OnMoveRight;
             @MoveRight.canceled += instance.OnMoveRight;
-            @MobeBackward.started += instance.OnMobeBackward;
-            @MobeBackward.performed += instance.OnMobeBackward;
-            @MobeBackward.canceled += instance.OnMobeBackward;
+            @MoveBackward.started += instance.OnMoveBackward;
+            @MoveBackward.performed += instance.OnMoveBackward;
+            @MoveBackward.canceled += instance.OnMoveBackward;
         }
 
         /// <summary>
@@ -1052,9 +1052,9 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
             @MoveRight.started -= instance.OnMoveRight;
             @MoveRight.performed -= instance.OnMoveRight;
             @MoveRight.canceled -= instance.OnMoveRight;
-            @MobeBackward.started -= instance.OnMobeBackward;
-            @MobeBackward.performed -= instance.OnMobeBackward;
-            @MobeBackward.canceled -= instance.OnMobeBackward;
+            @MoveBackward.started -= instance.OnMoveBackward;
+            @MoveBackward.performed -= instance.OnMoveBackward;
+            @MoveBackward.canceled -= instance.OnMoveBackward;
         }
 
         /// <summary>
@@ -1391,12 +1391,12 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMoveRight(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "MobeBackward" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "MoveBackward" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMobeBackward(InputAction.CallbackContext context);
+        void OnMoveBackward(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

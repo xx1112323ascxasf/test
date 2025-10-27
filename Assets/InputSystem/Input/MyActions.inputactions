@@ -52,7 +52,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MobeBackward",
+                    "name": "MoveBackward",
                     "type": "Button",
                     "id": "9bd195e3-b1f1-4f21-8d98-cba0a31fcacf",
                     "expectedControlType": "",
@@ -157,14 +157,14 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MobeBackward",
+                    "action": "MoveBackward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "db9ccf14-fa66-4c4c-b679-6a7d04efef4f",
-                    "path": "<Keyboard>/v",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
