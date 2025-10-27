@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
     {
         if (isMovingForward)
         {
-            rb.AddForce(transform.forward * moveSpeed, ForceMode.Force);
+            rb.AddForce(transform.forward * moveSpeed, ForceMode.Impulse);
         }
     }
 }
