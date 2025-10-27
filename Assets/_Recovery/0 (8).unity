@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55145542430a695b0feb7f7b487319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.Movement
-  moveSpeed: 10
+  frb: {fileID: 0}
 --- !u!4 &312051965
 Transform:
   m_ObjectHideFlags: 0
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55145542430a695b0feb7f7b487319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  moveSpeed: 10
+  frb: {fileID: 312051966}
 --- !u!1 &331945101
 GameObject:
   m_ObjectHideFlags: 0

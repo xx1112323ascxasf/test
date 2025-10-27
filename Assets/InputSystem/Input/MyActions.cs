@@ -99,7 +99,7 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Dash"",
@@ -112,12 +112,12 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""MoveFoward"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""6e273463-72aa-4951-a030-e018ba09064f"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""MoveLeft"",
@@ -250,7 +250,7 @@ public partial class @MyActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""db9ccf14-fa66-4c4c-b679-6a7d04efef4f"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
