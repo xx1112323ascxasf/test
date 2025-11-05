@@ -5,7 +5,11 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 2f;
+    public float moveSpeed = 1f;
+    public float forwardSpeed = 1f;
+    public float leftSpeed = 1.5f;
+    public float rightSpeed = 1.5f;
+    public float backwardSpeed = 1f;
     private Rigidbody rb;
     private bool isMovingForward;
     private bool isMoviingLeft;
@@ -72,24 +76,19 @@ public class Movement : MonoBehaviour
     {
         if (isMovingForward)
         {
-            rb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);
+            rb.AddForce(transform.forward * forwardSpeed, ForceMode.Impulse);
         }
         if (isMoviingLeft)
         {
-            rb.AddForce(Vector3.left * moveSpeed, ForceMode.Impulse);
+            rb.AddForce(-transform.right * leftSpeed, ForceMode.Impulse); // left = negative right
         }
-
         if (isMovingRight)
         {
-            rb.AddForce(Vector3.right, ForceMode.Impulse);
+            rb.AddForce(transform.right * rightSpeed, ForceMode.Impulse);
         }
-
         if (IsMovingBackward)
         {
-            rb.AddForce(Vector3.back, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * backwardSpeed, ForceMode.Impulse);
         }
-
-
-
     }
 }
