@@ -71,16 +71,18 @@ public class Movement : MonoBehaviour
 
 
     #endregion
-
+    //global/world directions (Vector3.forward, Vector3.right)
+    // thats why here is transform insted of Vector3.
+    // left = negative right
     void FixedUpdate()
     {
         if (isMovingForward)
         {
-            rb.AddForce(transform.forward * forwardSpeed, ForceMode.Impulse);
+            rb.AddForce(transform.forward * forwardSpeed, ForceMode.Impulse); 
         }
         if (isMoviingLeft)
         {
-            rb.AddForce(-transform.right * leftSpeed, ForceMode.Impulse); // left = negative right
+            rb.AddForce(-transform.right * leftSpeed, ForceMode.Impulse); 
         }
         if (isMovingRight)
         {

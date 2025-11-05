@@ -3,20 +3,32 @@ using UnityEngine;
 public class CharacterRotation : MonoBehaviour
 {
  
-    Rigidbody m_Rigidbody;
-    Vector3 m_EulerAngleVelocity;
+    public Rigidbody rb;
+    public Transform cameraTransform; 
+
+    public float rotationSpeed = 40f;
 
     void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
-
-        m_EulerAngleVelocity = new Vector3(0, 100, 0);
+        Cursor.visible = false;                
+        Cursor.lockState = CursorLockMode.Locked; 
     }
 
     void FixedUpdate()
     {
-        Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.fixedDeltaTime);
-        m_Rigidbody.MoveRotation(m_Rigidbody.rotation * deltaRotation);
+        if (cameraTransform == null || rb == null) return;
+
+        Vector3 targetDirection = cameraTransform.forward;
+        targetDirection.y = 0f;
+
+        if (targetDirection.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+            Quaternion smoothedRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+
+            rb.MoveRotation(smoothedRotation);
+        }
     }
 
 }
