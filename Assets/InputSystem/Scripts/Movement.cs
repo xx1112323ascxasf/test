@@ -5,15 +5,19 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+
+    
+ 
     public float forwardSpeed = 1f;
     public float leftSpeed = 1.5f;
     public float rightSpeed = 1.5f;
     public float backwardSpeed = 1f;
+
     private Rigidbody rb;
     private bool isMovingForward;
-    private bool isMoviingLeft;
+    private bool isMovingLeft;
     private bool isMovingRight;
-    private bool IsMovingBackward;
+    private bool isMovingBackward;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,11 +42,11 @@ public class Movement : MonoBehaviour
     {
         if (context.started)
         {
-            isMoviingLeft = true;
+            isMovingLeft = true;
         }
         else if (context.canceled)
         {
-            isMoviingLeft = false;
+            isMovingLeft = false;
         }
     }
     public void MoveRight(InputAction.CallbackContext context)
@@ -60,11 +64,11 @@ public class Movement : MonoBehaviour
     {
         if (context.started)
         {
-            IsMovingBackward = true;
+            isMovingBackward = true;
         }
         else if (context.canceled)
         {
-            IsMovingBackward = false;
+            isMovingBackward = false;
         }
     }
 
@@ -74,21 +78,23 @@ public class Movement : MonoBehaviour
     {
          if (isMovingForward)
         {
-            rb.AddForce(transform.forward * forwardSpeed, ForceMode.Impulse); 
+            rb.AddForce(transform.forward * forwardSpeed , ForceMode.Impulse); 
         }
-        if (isMoviingLeft)
+        if (isMovingLeft)
         {
-            rb.AddForce(-transform.right * leftSpeed, ForceMode.Impulse); 
+            rb.AddForce(-transform.right * leftSpeed , ForceMode.Impulse); 
         }
         if (isMovingRight)
         {
-            rb.AddForce(transform.right * rightSpeed, ForceMode.Impulse);
+            rb.AddForce(transform.right * rightSpeed , ForceMode.Impulse);
         }
-        if (IsMovingBackward)
+        if (isMovingBackward)
         {
-            rb.AddForce(-transform.forward * backwardSpeed, ForceMode.Impulse);
+            rb.AddForce(-transform.forward * backwardSpeed , ForceMode.Impulse);
         }
     }
+
+
 
 
 
@@ -100,6 +106,14 @@ public class Movement : MonoBehaviour
     #region speedcontrol
 
     [Header("Movement")]
+
+    public float JumpForce;
+    public float JumpCooldown;
+    public float airMultiplayer;
+
+    bool readyToJump; 
+
+
 
     public float groundDrag;
 
@@ -125,6 +139,20 @@ public class Movement : MonoBehaviour
             rb.linearDamping = 0;
         }
        
+    }
+
+    
+    public void Jump(InputAction.CallbackContext context)
+    {
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        rb.AddForce(transform.up * JumpForce, ForceMode.Impulse);
+
+
+    }
+
+    public void ResetJump()
+    {
+        readyToJump = true;  
     }
 
     
