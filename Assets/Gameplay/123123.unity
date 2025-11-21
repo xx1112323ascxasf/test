@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 247115149}
   - component: {fileID: 247115148}
   - component: {fileID: 247115147}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,7 +666,11 @@ MonoBehaviour:
   leftSpeed: 1
   rightSpeed: 1
   backwardSpeed: 1
-  MaxSpeed: 20
+  groundDrag: 0
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &312051965
 Transform:
   m_ObjectHideFlags: 0
@@ -742,7 +746,11 @@ MonoBehaviour:
   leftSpeed: 1
   rightSpeed: 1
   backwardSpeed: 1
-  MaxSpeed: 30
+  groundDrag: 0
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &312051970
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -99,14 +99,32 @@ public class Movement : MonoBehaviour
 
     #region speedcontrol
 
-    public float MaxSpeed = 20f; 
+    [Header("Movement")]
 
-    public void SpeedLimit()
+    public float groundDrag;
+
+    [Header("Ground Check")]
+
+    public float playerHeight;
+
+    public LayerMask whatIsGround;
+
+   
+
+    bool grounded;
+    public void GroundCheck()  //later make spherecast
     {
-        if(rb.linearVelocity.magnitude > MaxSpeed)
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+        if(grounded)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * MaxSpeed;
+            rb.linearDamping = groundDrag;
         }
+        else
+        {
+            rb.linearDamping = 0;
+        }
+       
     }
 
     
@@ -118,9 +136,13 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         isMoving();
-        SpeedLimit();
+        
     }
 
+    void Update()
+    {
+        GroundCheck();
+    }
 
 
 
