@@ -1,11 +1,10 @@
 
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.InputSystem; 
 
 
 public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 1f;
     public float forwardSpeed = 1f;
     public float leftSpeed = 1.5f;
     public float rightSpeed = 1.5f;
@@ -22,6 +21,7 @@ public class Movement : MonoBehaviour
 
 
     #region input actions
+
 
     public void MoveForward(InputAction.CallbackContext context)
     {
@@ -96,10 +96,31 @@ public class Movement : MonoBehaviour
     //global/world directions (Vector3.forward, Vector3.right)
     // thats why here is transform insted of Vector3.
     // left = negative right
+
+    #region speedcontrol
+
+    public float MaxSpeed = 20f; 
+
+    public void SpeedLimit()
+    {
+        if(rb.linearVelocity.magnitude > MaxSpeed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * MaxSpeed;
+        }
+    }
+
+    
+ 
+    
+
+  
+    #endregion
     void FixedUpdate()
     {
         isMoving();
+        SpeedLimit();
     }
+
 
 
 
