@@ -551,7 +551,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55145542430a695b0feb7f7b487319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  moveForce: 10
+  moveSpeed: 10
+  groundDrag: 5
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &312051971
 MonoBehaviour:
   m_ObjectHideFlags: 0
