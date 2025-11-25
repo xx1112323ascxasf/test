@@ -6,23 +6,43 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
 
-  public float moveForce = 10f;
+    [Header("Movement")]
+    #region Movement
+    public float moveForce = 10f;
 
-    private Rigidbody rb;
     private Vector2 moveInput;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
 
+    private void MovePlayer()
+    {
+        Vector3 forceDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+
+        rb.AddForce(forceDirection * moveForce, ForceMode.Force);
+    }
+    #endregion
+    
+    
+    [Header("Ground Check")]
+    #region GroundCheck
+
+    
+    #endregion
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+
+
     private void FixedUpdate()
     {
-        
+        MovePlayer();
     }
 }
