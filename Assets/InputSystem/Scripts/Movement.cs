@@ -16,7 +16,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -24,7 +23,6 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 force = new Vector3(moveInput.x, 0f, moveInput.y) * moveForce;
-        rb.AddForce(force, ForceMode.Force);
+        
     }
 }
