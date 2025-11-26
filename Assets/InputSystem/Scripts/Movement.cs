@@ -24,7 +24,9 @@ public class Movement : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 forceDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+        Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
+
+        Vector3 forceDirection = transform.TransformDirection(inputDir);
 
         rb.AddForce(forceDirection * moveSpeed * 10f, ForceMode.Force);
     }
