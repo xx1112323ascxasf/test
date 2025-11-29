@@ -7,22 +7,39 @@ public class PlayerLook : MonoBehaviour
     #region characterortation
     
     
-    public Transform cameraObject;   
-    public float rotationSpeed = 10f;   
+    public Transform cameraObject;
+    public float rotationSpeed = 10f;
+    public Rigidbody rb;
+
+    private Vector3 _desiredForward; 
 
    
+    void CameraDirection()
+    {
+        Vector3 camForward = cameraObject.forward;
+        camForward.y = 0f;
+        if (camForward.sqrMagnitude > 0.0001f)
+        _desiredForward = camForward.normalized;
+    }
 
     void RotateToCameraDirection()
     {
        
-        Vector3 cameraForward = cameraObject.forward;
-        cameraForward.y = 0f;                       
-        if (cameraForward.sqrMagnitude < 0.01f) return;
+        if (_desiredForward.sqrMagnitude < 0.0001f) return;
 
-       
-        Quaternion targetRotation = Quaternion.LookRotation(cameraForward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        Quaternion targetRotation = Quaternion.LookRotation(_desiredForward);
+
+        Quaternion newRotation = Quaternion.Slerp
+        (
+        rb.rotation,
+        targetRotation,
+        rotationSpeed * Time.fixedDeltaTime
+        );
+
+        rb.MoveRotation(newRotation);
     }
+
+
 
 
     #endregion
@@ -62,6 +79,7 @@ public class PlayerLook : MonoBehaviour
     void Update()
     {
         CursorLock();
+        CameraDirection();
   
     }
     void FixedUpdate()

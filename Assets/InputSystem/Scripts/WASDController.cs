@@ -93,6 +93,4 @@ public class Movement : MonoBehaviour
 
 
 
-    #region jump
-    #endregion
 }
