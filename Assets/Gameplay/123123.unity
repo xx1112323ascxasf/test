@@ -482,7 +482,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 312051965}
-  - component: {fileID: 312051971}
   - component: {fileID: 312051969}
   - component: {fileID: 312051966}
   - component: {fileID: 312051972}
@@ -558,20 +557,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
---- !u!114 &312051971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312051962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4012e30e84767135e933235401333357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterRotation
-  cameraTransform: {fileID: 0}
-  rotationSpeed: 10
 --- !u!114 &312051972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,8 +626,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4012e30e84767135e933235401333357, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterRotation
-  cameraTransform: {fileID: 71518979}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
+  cameraObject: {fileID: 71518979}
   rotationSpeed: 100
 --- !u!1 &331945101
 GameObject:

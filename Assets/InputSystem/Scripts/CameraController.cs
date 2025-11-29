@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
-    #region characterortatin
+    #region characterortation
     
     
     public Transform cameraObject;   
@@ -62,6 +62,10 @@ public class PlayerLook : MonoBehaviour
     void Update()
     {
         CursorLock();
+  
+    }
+    void FixedUpdate()
+    {
         RotateToCameraDirection();
     }
 }

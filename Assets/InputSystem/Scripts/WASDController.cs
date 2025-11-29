@@ -88,4 +88,11 @@ public class Movement : MonoBehaviour
         MovePlayer();
     }
     #endregion
+
+
+
+
+
+    #region jump
+    #endregion
 }
