@@ -80,7 +80,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     { 
-        SpeedControl();
+        SpeedControl(); //while press w and a/d may be a reason for jitter 
         GroundCheck();
     }
     private void FixedUpdate()
