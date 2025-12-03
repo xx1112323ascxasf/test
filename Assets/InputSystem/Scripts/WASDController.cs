@@ -22,16 +22,16 @@ public class Movement : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
-    private void MovePlayer()
+    private void MovePlayer() //local variables
     {
         Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
 
-        Vector3 forceDirection = transform.TransformDirection(inputDir);
+        Vector3 forceDirection = transform.TransformDirection(inputDir); 
 
         rb.AddForce(forceDirection * moveSpeed * 10f, ForceMode.Force);
     }
 
-    private void SpeedControl()
+    private void SpeedControl() //using layermask
     {
         Vector3 flatVelocity = new Vector3(rb.linearVelocity.x,0f,rb.linearVelocity.z);
         if (flatVelocity.magnitude > moveSpeed)
@@ -51,7 +51,7 @@ public class Movement : MonoBehaviour
     public LayerMask whatIsGround;
     bool grounded;
 
-    private void GroundCheck()
+    private void GroundCheck() 
     {
 
         //later change to spherecast
