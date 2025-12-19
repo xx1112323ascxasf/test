@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -49,14 +51,19 @@ namespace HierarchicalSM
             OnUpdate(deltaTime);
         } 
         
-
+        //return deepest currently active state (the leaf of the active path)
         public State Leaf()
         {
             State s = this;
             while (s.ActiveChild != null) s = s.ActiveChild;
             return s;
         }
-        
+
+        // yields this state and then each anchestor up to the root (self -> parent -> ... -> root)
+        public IEnumerable<State> PathToRoot()
+        {
+            for (State s = this; s != null; s = s.Parent) yield return s;  
+        }        
     }
 
 
