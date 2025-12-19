@@ -45,8 +45,18 @@ namespace HierarchicalSM
                 Machine.Sequencer.RequestTransition(this, t);
                 return;
             }
+            if (ActiveChild != null) ActiveChild.Update(deltaTime);
+            OnUpdate(deltaTime);
         } 
+        
 
+        public State Leaf()
+        {
+            State s = this;
+            while (s.ActiveChild != null) s = s.ActiveChild;
+            return s;
+        }
+        
     }
 
 
