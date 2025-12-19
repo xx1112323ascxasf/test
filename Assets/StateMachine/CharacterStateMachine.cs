@@ -22,12 +22,36 @@ namespace HierarchicalSM
         protected virtual void OnExit(){}
         protected virtual void OnUpdate(float deltaTime) {} 
 
+        internal void Enter()
+        {
+            if (Parent != null) Parent.ActiveChild = this;
+            OnEnter();
+            State init = GetInitialState();
+            if (init != null) init.Enter();
+        }
+
+        internal void Exit()
+        {
+            if (ActiveChild != null) ActiveChild.Exit();
+            ActiveChild = null;
+            OnExit();
+        }
+         
+        public void Update(float deltaTime)
+        {
+            State t = GetTransition();
+            if (t != null)
+            {
+                Machine.Sequencer.RequestTransition(this, t);
+                return;
+            }
+        } 
+
     }
 
 
-    public class StateMachine{}
 
-    public class TransitionSequencer{}
+  
 
 }
 
