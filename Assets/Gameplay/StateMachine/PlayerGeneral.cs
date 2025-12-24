@@ -10,8 +10,18 @@ public class PlayerGeneral : MonoBehaviour
     StateCollection States;
     public StateCollection STATES => States;
 
+
+    InputProcessor InputProcessor;
+    
+    public InputProcessor inputPROCESSOR => InputProcessor;
+    
+    PlayerM
+
+
+
     [Header("Component")]
     [SerializeField] Rigidbody RigitBody;
+    [SerializeField] PlayerConfiguration PlayerConfiguration;
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI CurrentState;
@@ -20,6 +30,7 @@ public class PlayerGeneral : MonoBehaviour
     {
         StateMachine = new StateMachine();
         States = new StateCollection(this, StateMachine); 
+        InputProcessor = new InputProcessor();
     }
     void Start()
     {
