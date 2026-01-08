@@ -31,20 +31,34 @@ public class Movement : MonoBehaviour
         rb.AddForce(forceDirection * moveSpeed * 10f, ForceMode.Force);
     }
 
-    private void SpeedControl() //using layermask
+
+    
+
+
+    #region startupdate
+    private void Awake()
     {
-        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x,0f,rb.linearVelocity.z);
-        if (flatVelocity.magnitude > moveSpeed)
-        {
-            Vector3 limitedVelocity = flatVelocity.normalized * moveSpeed;
-            
-            rb.linearVelocity = new Vector3(limitedVelocity.x, rb.linearVelocity.y, limitedVelocity.z); //limitedspeed apply
-        }
+        rb = GetComponent<Rigidbody>();
+    }
+
+
+    private void Update()
+    { 
+        //SpeedControl(); //while press w and a/d may be a reason for jitter 
+        //GroundCheck();
+    }
+    private void FixedUpdate()
+    {
+        MovePlayer();
     }
     #endregion
-    
-    
-    [Header("Ground Check")]
+
+
+
+
+    #region test
+
+     [Header("Ground Check")]
     #region GroundCheck
 
     public float playerHeight;
@@ -64,31 +78,25 @@ public class Movement : MonoBehaviour
             rb.linearDamping = 0;
     }
 
+        private void SpeedControl() //using layermask
+    {
+        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x,0f,rb.linearVelocity.z);
+        if (flatVelocity.magnitude > moveSpeed)
+        {
+            Vector3 limitedVelocity = flatVelocity.normalized * moveSpeed;
+            
+            rb.linearVelocity = new Vector3(limitedVelocity.x, rb.linearVelocity.y, limitedVelocity.z); //limitedspeed apply
+        }
+    }
+    #endregion
+    
+    
+
 
 
     #endregion
 
-
-
-
-    #region startupdate
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-
-    private void Update()
-    { 
-        SpeedControl(); //while press w and a/d may be a reason for jitter 
-        GroundCheck();
-    }
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-    #endregion
-
+    #endregion  
 
 
 
