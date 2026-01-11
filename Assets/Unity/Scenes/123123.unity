@@ -706,8 +706,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312051962}
   serializedVersion: 5
-  m_Mass: 90
-  m_LinearDamping: 0
+  m_Mass: 10
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -737,12 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55145542430a695b0feb7f7b487319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  moveSpeed: 60
-  groundDrag: 20
-  playerHeight: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1024
+  moveForce: 0
 --- !u!114 &312051972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1be1208d8f3cee4684aae640ac0b869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashController
-  m_Thrust: 200
+  m_Thrust: 2000
 --- !u!114 &312051975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,6 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33681b5c985e32449b4c5a4470ecb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpeedLimitController
+  maxSpeed: 20
 --- !u!114 &312051976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,7 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598c042b33ff4102d8693fc031994a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpController
-  m_Thrust: 200
+  m_Thrust: 2000
 --- !u!1 &331945101
 GameObject:
   m_ObjectHideFlags: 0
