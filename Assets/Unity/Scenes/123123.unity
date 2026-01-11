@@ -665,9 +665,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 312051965}
-  - component: {fileID: 312051969}
   - component: {fileID: 312051966}
   - component: {fileID: 312051972}
+  - component: {fileID: 312051969}
   - component: {fileID: 312051973}
   - component: {fileID: 312051974}
   - component: {fileID: 312051975}
@@ -706,7 +706,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312051962}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 90
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -737,8 +737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55145542430a695b0feb7f7b487319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  moveSpeed: 10
-  groundDrag: 5
+  moveSpeed: 60
+  groundDrag: 20
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -860,8 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1be1208d8f3cee4684aae640ac0b869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashController
-  dashForce: 100
-  dashCooldown: 1
+  m_Thrust: 200
 --- !u!114 &312051975
 MonoBehaviour:
   m_ObjectHideFlags: 0
