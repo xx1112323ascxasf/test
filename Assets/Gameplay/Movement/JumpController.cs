@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class JumpController : MonoBehaviour
@@ -29,8 +30,9 @@ public class JumpController : MonoBehaviour
    
 
 
+
     public Vector3 boxSize;
-    public float maxDistance;
+    public float maxDistance; // y shoud be small as possible 
     public LayerMask layerMask;
 
 
@@ -51,7 +53,7 @@ public class JumpController : MonoBehaviour
         if(Physics.BoxCast(transform.position,boxSize,-transform.up,transform.rotation,maxDistance,layerMask)) //1 center, 2 size, 3 diraction 
         {
             return true;
-            
+
 
         }   
 
