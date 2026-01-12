@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class JumpController : MonoBehaviour
 {
-    public void Jump(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context )
     {
     
 
-        if (context.phase == InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Performed )
         {
             Debug.Log("jump!");
 

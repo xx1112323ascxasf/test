@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
 
     [Header("Movement")]
     #region Movement
-    public float moveForce;
+    public float moveForce = 20f;
 
     
 
@@ -44,8 +44,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     { 
-        //SpeedControl(); //while press w and a/d may be a reason for jitter 
-        //GroundCheck();
+    
     }
     private void FixedUpdate()
     {

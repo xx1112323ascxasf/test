@@ -1,0 +1,41 @@
+using UnityEngine;
+
+public class GroundCheck : MonoBehaviour
+{
+
+    Rigidbody rb;
+    public Vector3 boxSize;
+    public float maxDistance;
+    public LayerMask layerMask;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+    void Update()
+    {
+        
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color =Color.red;
+        Gizmos.DrawWireCube(transform.position - transform.up * maxDistance, boxSize);
+    }
+
+    bool GroundCHECK()
+    {
+        if(Physics.BoxCast(transform.position,boxSize,-transform.up,transform.rotation,maxDistance,layerMask)) //1 center, 2 size, 3 diraction 
+        {
+            return true;
+
+
+        }   
+
+        else
+        {
+            return false;
+        }      
+         
+    }
+}
