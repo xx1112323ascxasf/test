@@ -671,7 +671,6 @@ GameObject:
   - component: {fileID: 312051973}
   - component: {fileID: 312051974}
   - component: {fileID: 312051976}
-  - component: {fileID: 312051977}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -868,21 +867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598c042b33ff4102d8693fc031994a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpController
-  m_Thrust: 20
---- !u!114 &312051977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312051962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41d117ce4a5b2044a293a91068dde3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
+  m_Thrust: 2000
   boxSize: {x: 1, y: 1, z: 1}
-  maxDistance: 1
+  maxDistance: 0.7
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
