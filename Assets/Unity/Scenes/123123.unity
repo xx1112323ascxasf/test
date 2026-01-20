@@ -670,8 +670,9 @@ GameObject:
   - component: {fileID: 312051969}
   - component: {fileID: 312051973}
   - component: {fileID: 312051974}
-  - component: {fileID: 312051976}
   - component: {fileID: 312051977}
+  - component: {fileID: 312051979}
+  - component: {fileID: 312051978}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -793,7 +794,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 312051976}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: JumpController, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -856,24 +857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashController
   m_Thrust: 2000
---- !u!114 &312051976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312051962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 598c042b33ff4102d8693fc031994a15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JumpController
-  m_Thrust: 2000
-  boxSize: {x: 1, y: 0.2, z: 1}
-  maxDistance: 1
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!114 &312051977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,6 +870,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpeedLimitController
   maxSpeed: 4
+--- !u!114 &312051978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312051962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41d117ce4a5b2044a293a91068dde3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
+  boxSize: {x: 1, y: 0.2, z: 1}
+  maxDistance: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &312051979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312051962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598c042b33ff4102d8693fc031994a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JumpController
+  m_Thrust: 20
 --- !u!1 &331945101
 GameObject:
   m_ObjectHideFlags: 0

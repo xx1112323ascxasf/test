@@ -7,7 +7,7 @@ public class JumpController : MonoBehaviour
     {
     
 
-        if (context.phase == InputActionPhase.Performed && GroundCHECK())
+        if (context.phase == InputActionPhase.Performed )
         {
             Debug.Log("jump!");
 
@@ -21,47 +21,43 @@ public class JumpController : MonoBehaviour
     Rigidbody rb;
     public float m_Thrust = 20f;
 
-
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
    
 
-
-
-    public Vector3 boxSize;
-    public float maxDistance; // y shoud be small as possible 
-    public LayerMask layerMask;
-
-
     void Update()
     {
    
         
     }
+    
+    #region  test
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.color =Color.red;
+    //     Gizmos.DrawWireCube(transform.position - transform.up * maxDistance, boxSize);
+    // }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color =Color.red;
-        Gizmos.DrawWireCube(transform.position - transform.up * maxDistance, boxSize);
-    }
-
-    public bool GroundCHECK()
-    {
-        if(Physics.BoxCast(transform.position,boxSize,-transform.up,transform.rotation,maxDistance,layerMask)) //1 center, 2 size, 3 diraction 
-        {
-            return true;
+    // [SerializeField] private bool isGrounded; 
+    // public bool IsGrounded => isGrounded;
+    // public bool GroundCHECK()
+    // {
+    //     if(Physics.BoxCast(transform.position,boxSize,-transform.up,transform.rotation,maxDistance,layerMask)) //1 center, 2 size, 3 diraction 
+    //     {
+    //         return true;
 
 
-        }   
+    //     }   
 
-        else
-        {
-            return false;
-        }      
+    //     else
+    //     {
+    //         return false;
+    //     }      
          
-    }
+    // }
+
+    #endregion
 
 }

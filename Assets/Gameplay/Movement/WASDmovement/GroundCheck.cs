@@ -24,7 +24,8 @@ public class GroundCheck : MonoBehaviour
         Gizmos.DrawWireCube(transform.position - transform.up * maxDistance, boxSize);
     }
 
-    public bool GroundCHECK()
+
+    public bool groundCheck()
     {
         if(Physics.BoxCast(transform.position,boxSize,-transform.up,transform.rotation,maxDistance,layerMask)) //1 center, 2 size, 3 diraction 
         {

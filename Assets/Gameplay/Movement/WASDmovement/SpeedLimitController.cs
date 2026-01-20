@@ -1,7 +1,7 @@
 using UnityEngine;
 public class SpeedLimitController : MonoBehaviour
 {
-    private Rigidbody rb;   
+    private  Rigidbody rb;   
     public float maxSpeed;
 
     private void Awake()

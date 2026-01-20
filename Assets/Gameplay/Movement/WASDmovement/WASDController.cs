@@ -6,6 +6,12 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
 
+    GroundCheck groundCheck;
+
+
+
+
+
     [Header("Movement")]
     #region Movement
     public float moveForce = 20f;
@@ -16,8 +22,10 @@ public class Movement : MonoBehaviour
 
     private Vector2 moveInput;
 
+  
 
-    public void OnMove(InputAction.CallbackContext context)
+
+    public void OnMove(InputAction.CallbackContext context )
     {
         moveInput = context.ReadValue<Vector2>();
     }
@@ -55,10 +63,6 @@ public class Movement : MonoBehaviour
 
 
 
-    #region test
-
-
-    #endregion
     
     
 
