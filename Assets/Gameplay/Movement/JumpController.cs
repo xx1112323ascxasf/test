@@ -3,11 +3,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class JumpController : MonoBehaviour
 {
+
+    public bool isGrounded() //invoke GroundCheck script
+    {
+        GroundCheck groundCheck = GetComponent<GroundCheck>();
+        return groundCheck.IsGrounded();
+    }
     public void Jump(InputAction.CallbackContext context )
     {
     
 
-        if (context.phase == InputActionPhase.Performed )
+        if (context.phase == InputActionPhase.Performed && isGrounded()) //&& GroundCHECK()
         {
             Debug.Log("jump!");
 
@@ -15,6 +21,8 @@ public class JumpController : MonoBehaviour
         }
 
     }
+
+
 
 
 
@@ -27,11 +35,11 @@ public class JumpController : MonoBehaviour
     }
    
 
-    void Update()
-    {
-   
-        
-    }
+
+
+
+    
+    
     
     #region  test
     // void OnDrawGizmos()

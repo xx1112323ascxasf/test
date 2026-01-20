@@ -6,10 +6,6 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
 
-    GroundCheck groundCheck;
-
-
-
 
 
     [Header("Movement")]
@@ -25,19 +21,19 @@ public class Movement : MonoBehaviour
   
 
 
-    public void OnMove(InputAction.CallbackContext context )
-    {
-        moveInput = context.ReadValue<Vector2>();
-    }
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            moveInput = context.ReadValue<Vector2>();
+        }
 
-    private void MovePlayer() //local variables
-    {
-        Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
+        private void MovePlayer() //local variables
+        {
+            Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
 
-        Vector3 forceDirection = transform.TransformDirection(inputDir); 
+            Vector3 forceDirection = transform.TransformDirection(inputDir); 
 
-        rb.AddForce(forceDirection * moveForce * 10f, ForceMode.Impulse);
-    }
+            rb.AddForce(forceDirection * moveForce * 10f, ForceMode.Impulse);
+        }
 
 
     

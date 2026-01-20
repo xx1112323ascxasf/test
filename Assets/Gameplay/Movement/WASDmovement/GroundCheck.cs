@@ -12,11 +12,6 @@ public class GroundCheck : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-    void Update()
-    {
-   
-        
-    }
 
     void OnDrawGizmos()
     {
@@ -25,7 +20,7 @@ public class GroundCheck : MonoBehaviour
     }
 
 
-    public bool groundCheck()
+    public bool IsGrounded()
     {
         if(Physics.BoxCast(transform.position,boxSize,-transform.up,transform.rotation,maxDistance,layerMask)) //1 center, 2 size, 3 diraction 
         {
