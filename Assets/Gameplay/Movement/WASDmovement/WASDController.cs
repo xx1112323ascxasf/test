@@ -34,17 +34,19 @@ public class Movement : MonoBehaviour
 
         private void MovePlayer() //local variables
         {
+             Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
+
+            Vector3 forceDirection = transform.TransformDirection(inputDir); 
+
+
+
             if(isGrounded())
             {
-                Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
-
-                Vector3 forceDirection = transform.TransformDirection(inputDir); 
-
                 rb.AddForce(forceDirection * moveForce * 10f, ForceMode.Impulse);
             }
             else
             {
-               
+               rb.AddForce(forceDirection * moveForce * 1f, ForceMode.Impulse);
             }
             
 
