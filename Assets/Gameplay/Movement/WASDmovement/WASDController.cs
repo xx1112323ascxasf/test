@@ -7,11 +7,15 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
 
-        public bool isGrounded() //invoke GroundCheck script
-        {
-            GroundCheck groundCheck = GetComponent<GroundCheck>();
-            return groundCheck.IsGrounded();
-        }
+    public bool isGrounded() //invoke GroundCheck script
+    {
+        GroundCheck groundCheck = GetComponent<GroundCheck>();
+        return groundCheck.IsGrounded();
+    }
+
+    // make special grounded for movement, like "IS LOWGROUNDED" even can use raycast as base
+
+
 
     [Header("Movement")]
     #region Movement
@@ -46,7 +50,7 @@ public class Movement : MonoBehaviour
             }
             else
             {
-               rb.AddForce(forceDirection * moveForce * 1f, ForceMode.Impulse);
+               rb.AddForce(forceDirection * moveForce * 20f, ForceMode.Acceleration);
             }
             
 

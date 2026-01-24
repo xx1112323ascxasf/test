@@ -9,6 +9,13 @@ public class JumpController : MonoBehaviour
         GroundCheck groundCheck = GetComponent<GroundCheck>();
         return groundCheck.IsGrounded();
     }
+
+    public bool isLowGrounded() //invoke LowGroundCheck script
+    {
+        LowGroundCheck lowGroundCheck = GetComponent<LowGroundCheck>();
+        return lowGroundCheck.IsLowGrounded();
+    }
+
     public void Jump(InputAction.CallbackContext context )
     {
     
@@ -19,7 +26,17 @@ public class JumpController : MonoBehaviour
 
             rb.AddForce(transform.up * m_Thrust);
         }
+        
 
+    
+
+        else if (context.phase == InputActionPhase.Performed && isLowGrounded()) 
+        {
+            Debug.Log("low jump!");
+
+            rb.AddForce(transform.up * m_Thrust);
+            rb.AddForce(transform.forward * f_Thrust);
+        }
     }
 
 
@@ -28,6 +45,7 @@ public class JumpController : MonoBehaviour
 
     Rigidbody rb;
     public float m_Thrust = 20f;
+    public float f_Thrust = 40f; 
 
     void Start()
     {
