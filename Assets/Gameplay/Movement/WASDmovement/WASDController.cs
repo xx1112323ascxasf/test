@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour
 
         private void MovePlayer() //local variables
         {
-             Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
+            Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
 
             Vector3 forceDirection = transform.TransformDirection(inputDir); 
 
@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour
             }
             else
             {
-               rb.AddForce(forceDirection * moveForce * 20f, ForceMode.Acceleration);
+               rb.AddForce(forceDirection * moveForce * 0.5f, ForceMode.Acceleration);
             }
             
 

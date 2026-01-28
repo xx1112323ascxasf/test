@@ -670,7 +670,6 @@ GameObject:
   - component: {fileID: 312051969}
   - component: {fileID: 312051973}
   - component: {fileID: 312051974}
-  - component: {fileID: 312051977}
   - component: {fileID: 312051979}
   - component: {fileID: 312051978}
   - component: {fileID: 312051980}
@@ -709,7 +708,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312051962}
   serializedVersion: 5
-  m_Mass: 3
+  m_Mass: 90
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -740,7 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e55145542430a695b0feb7f7b487319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  moveForce: 5
+  moveForce: 25
 --- !u!114 &312051972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,19 +858,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashController
   m_Thrust: 2000
---- !u!114 &312051977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312051962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e33681b5c985e32449b4c5a4470ecb9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpeedLimitController
-  maxSpeed: 30
 --- !u!114 &312051978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,7 +887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598c042b33ff4102d8693fc031994a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpController
-  m_Thrust: 1000
+  lowGroundAdd: 2
+  m_Thrust: 50000
   f_Thrust: 300
 --- !u!114 &312051980
 MonoBehaviour:
@@ -915,8 +902,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e8750af94ec9341a1aac6591fccf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LowGroundCheck
-  boxSize: {x: 1, y: 0.4, z: 1}
-  maxDistance: 1.3
+  boxSize: {x: 1, y: 0.8, z: 1}
+  maxDistance: 1.5
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -932,6 +919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcac1cda9d00e941b9019f0a0b4aaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StopWhileGrounded
+  smoothTime: 0.08
+  deceleration: 0
 --- !u!1 &331945101
 GameObject:
   m_ObjectHideFlags: 0

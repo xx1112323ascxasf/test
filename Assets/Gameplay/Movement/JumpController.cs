@@ -17,7 +17,7 @@ public class JumpController : MonoBehaviour
     }
 
 
-
+    public float lowGroundAdd = 1f;
 
 
     public void Jump(InputAction.CallbackContext context )
@@ -38,8 +38,8 @@ public class JumpController : MonoBehaviour
         {
             Debug.Log("low jump!");
 
-            rb.AddForce(transform.up * m_Thrust);
-            rb.AddForce(transform.forward * f_Thrust);
+            rb.AddForce(transform.up * m_Thrust * lowGroundAdd);
+            //rb.AddForce(transform.forward * f_Thrust );
         }
     }
 
