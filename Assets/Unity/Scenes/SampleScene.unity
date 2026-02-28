@@ -978,7 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37111cc23aa20b0c9b8f9d8afd5e03a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
-  moveSpeed: 5
+  moveSpeed: 12
 --- !u!114 &812733598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,12 +1029,12 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
-    m_ActionId: 106aa368-0b12-4c7c-95c8-dcf230186c80
-    m_ActionName: 'WASD/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+        m_CallState: 2
+    m_ActionId: 5bd8ede5-504f-467e-bc68-8a819baf0230
+    m_ActionName: 'Movement/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: WASD
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &812733599

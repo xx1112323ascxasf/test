@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
+
+
+
+	
 	public float moveSpeed = 5f;
 
 	Vector2 moveInput = Vector2.zero;
@@ -19,6 +23,16 @@ public class CharacterMovement : MonoBehaviour
 		Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
 		if (move.sqrMagnitude > 0.00001f)
 			transform.Translate(move * moveSpeed * Time.deltaTime, Space.Self);
+
 	}
+
+
+
+
+	#region character physics
+
+
+     
+	#endregion
 }
 
