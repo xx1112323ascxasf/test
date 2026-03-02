@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class CharacterRotation : MonoBehaviour
+
+
+public class CharacterCamera : MonoBehaviour
 {
-	[Tooltip("Degrees per second the character will rotate to match the camera's forward.")]
 	public float rotationSpeed = 720f;
 
-	[Tooltip("Optional: assign the camera transform (Cinemachine target or Camera.main). If empty, Camera.main is used.")]
 	public Transform cameraTransform;
 
 	void Awake()
@@ -14,18 +14,52 @@ public class CharacterRotation : MonoBehaviour
 			cameraTransform = Camera.main.transform;
 	}
 
-	void Update()
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+    }
+
+    void Update()
 	{
-		if (cameraTransform == null) return;
 
-		// Get camera forward, flatten to horizontal plane (keep Y rotation only)
-		Vector3 camForward = cameraTransform.forward;
-		camForward.y = 0f;
+		LookCursor();
+		CameraRotate();
 
-		if (camForward.sqrMagnitude < 1e-6f) return;
+	}
 
-		Quaternion targetRot = Quaternion.LookRotation(camForward.normalized, Vector3.up);
-		float maxDeg = rotationSpeed * Time.deltaTime;
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, maxDeg);
+
+	public void LookCursor()
+	{
+		if (cameraTransform != null)
+		{
+			// Get camera forward, flatten to horizontal plane (keep Y rotation only)
+			Vector3 camForward = cameraTransform.forward;
+			camForward.y = 0f;
+
+			if (camForward.sqrMagnitude >= 1e-6f)
+			{
+				Quaternion targetRot = Quaternion.LookRotation(camForward.normalized, Vector3.up);
+				float maxDeg = rotationSpeed * Time.deltaTime;
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, maxDeg);
+			}
+		}
+	}
+
+	public void CameraRotate()
+	{
+		if (cameraTransform != null)
+		{
+			// Get camera forward, flatten to horizontal plane (keep Y rotation only)
+			Vector3 camForward = cameraTransform.forward;
+			camForward.y = 0f;
+
+			if (camForward.sqrMagnitude >= 1e-6f)
+			{
+				Quaternion targetRot = Quaternion.LookRotation(camForward.normalized, Vector3.up);
+				float maxDeg = rotationSpeed * Time.deltaTime;
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, maxDeg);
+			}
+		}
 	}
 }
