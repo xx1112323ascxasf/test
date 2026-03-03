@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// This script handles Quake III CPM(A) mod style player movement logic using
-/// the Unity <see cref="CharacterController"/> component.  Movement and
-/// jumping are driven via Input System callbacks; looking/aiming is performed
-/// by a separate camera script.
-/// </summary>
-[RequireComponent(typeof(CharacterController))]
-public class Q3PlayerController : MonoBehaviour
+
+
+    [RequireComponent(typeof(CharacterController))]
+    public class Q3PlayerController : MonoBehaviour
     {
         [System.Serializable]
         public class MovementSettings
@@ -37,7 +33,6 @@ public class Q3PlayerController : MonoBehaviour
         [SerializeField] private MovementSettings m_StrafeSettings = new MovementSettings(1, 50, 50);
 
 
-        /// <summary>Current horizontal speed of the player (magnitude of velocity).</summary>
         public float Speed { get { return m_Character.velocity.magnitude; } }
 
         private CharacterController m_Character;
@@ -53,23 +48,14 @@ public class Q3PlayerController : MonoBehaviour
         private Vector3 m_MoveInput;
         
 
-        /// <summary>
-        /// InputSystem callback for the <c>Move</c> action, expected to provide a
-        /// <see cref="Vector2"/>.  Populates the internal <see cref="m_MoveInput"/>.
-        /// </summary>
-        public void OnMove(InputAction.CallbackContext context)
+        public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
             Vector2 v = context.ReadValue<Vector2>();
             m_MoveInput = new Vector3(v.x, 0f, v.y);
         }
 
 
-        /// <summary>
-        /// InputSystem callback for the <c>Jump</c> action.  Queues a jump on
-        /// press and clears the queue on release.  The actual jump is performed
-        /// in <see cref="Update"/> when grounded.
-        /// </summary>
-        public void OnJump(InputAction.CallbackContext context)
+        public void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
             if (context.started)
             {
@@ -81,17 +67,19 @@ public class Q3PlayerController : MonoBehaviour
                 m_JumpQueued = false;
             }
         }
-        /// <summary>
-        /// Optional look callback.  Usually handled by a camera/rotation script
-        /// rather than the movement controller.
-        /// </summary>
-        public void OnLook(InputAction.CallbackContext context)
+
+        public void OnDash(UnityEngine.InputSystem.InputAction.CallbackContext context) //WIP
         {
-            // intentionally left blank
+            if (context.started)
+            {
+                m_MoveInput = m_MoveInput.normalized * m_GroundSettings.MaxSpeed * 2;
+            }
+
+
         }
 
 
-        /// <summary>Transform cached for local space calculations.</summary>
+
         private Transform m_Tran;
 
         private void Start()
@@ -283,4 +271,8 @@ public class Q3PlayerController : MonoBehaviour
             m_PlayerVelocity.x += accelspeed * targetDir.x;
             m_PlayerVelocity.z += accelspeed * targetDir.z;
         }
+
+
+
+    
     }

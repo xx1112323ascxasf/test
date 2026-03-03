@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 812733596}
   - component: {fileID: 812733595}
   - component: {fileID: 812733598}
-  - component: {fileID: 812733597}
+  - component: {fileID: 812733600}
   - component: {fileID: 812733599}
   m_Layer: 0
   m_Name: Player
@@ -966,19 +966,6 @@ Transform:
   - {fileID: 1717547694}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &812733597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812733594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b37111cc23aa20b0c9b8f9d8afd5e03a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
-  moveSpeed: 9
 --- !u!114 &812733598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,8 +1005,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812733597}
-        m_TargetAssemblyTypeName: CharacterMovement, Assembly-CSharp
+      - m_Target: {fileID: 812733600}
+        m_TargetAssemblyTypeName: Q3PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -1032,6 +1019,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5bd8ede5-504f-467e-bc68-8a819baf0230
     m_ActionName: 'Movement/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 812733600}
+        m_TargetAssemblyTypeName: Q3PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dce57177-afb3-48f9-9367-3f9b600a15b1
+    m_ActionName: 'Movement/Jump[/Keyboard/leftArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 812733600}
+        m_TargetAssemblyTypeName: Q3PlayerController, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 866daa4b-5b3d-4a6b-9d2c-8aba21d2e3b0
+    m_ActionName: 'Movement/Dash[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -1048,9 +1067,37 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 614bb39f2db65160fae53bac7fb46cb6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterRotation
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterCamera
   rotationSpeed: 720
-  cameraTransform: {fileID: 628368487}
+  cameraTransform: {fileID: 1038526335}
+--- !u!114 &812733600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812733594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a7467748648bed7aa7276d554cc17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Q3PlayerController
+  m_Friction: 6
+  m_Gravity: 20
+  m_JumpForce: 8
+  m_AirControl: 0.3
+  m_GroundSettings:
+    MaxSpeed: 7
+    Acceleration: 14
+    Deceleration: 10
+  m_AirSettings:
+    MaxSpeed: 7
+    Acceleration: 2
+    Deceleration: 2
+  m_StrafeSettings:
+    MaxSpeed: 1
+    Acceleration: 50
+    Deceleration: 50
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
