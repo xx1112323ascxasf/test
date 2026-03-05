@@ -31,7 +31,10 @@ using UnityEngine.InputSystem;
         [SerializeField] private MovementSettings m_GroundSettings = new MovementSettings(7, 14, 10);
         [SerializeField] private MovementSettings m_AirSettings = new MovementSettings(7, 2, 2);
         [SerializeField] private MovementSettings m_StrafeSettings = new MovementSettings(1, 50, 50);
-
+        
+        [Header("Dash")]
+        [SerializeField] private float m_DashForce = 20f;
+        [SerializeField] private float m_DashCooldown = 0.5f;
 
         public float Speed { get { return m_Character.velocity.magnitude; } }
 
@@ -41,6 +44,9 @@ using UnityEngine.InputSystem;
 
         // Used to queue the next jump just before hitting the ground.
         private bool m_JumpQueued = false;
+        
+        // Used to track dash cooldown
+        private float m_DashCooldownTimer = 0f;
 
         // Used to display real time friction values.
         private float m_PlayerFriction = 0;
@@ -68,14 +74,25 @@ using UnityEngine.InputSystem;
             }
         }
 
-        public void OnDash(UnityEngine.InputSystem.InputAction.CallbackContext context) //WIP
+        public void OnDash(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
-            if (context.started)
+            if (context.started && m_DashCooldownTimer <= 0 && m_Character.isGrounded)
             {
-                m_MoveInput = m_MoveInput.normalized * m_GroundSettings.MaxSpeed * 2;
+                // Apply dash in the direction player is moving
+                Vector3 dashDirection = m_MoveInput.normalized;
+                if (dashDirection.magnitude < 0.1f)
+                {
+                   
+                    dashDirection = m_Tran.forward;
+                }
+                else
+                {
+                    dashDirection = m_Tran.TransformDirection(dashDirection);
+                }
+                
+                m_PlayerVelocity = dashDirection * m_DashForce;
+                m_DashCooldownTimer = m_DashCooldown;
             }
-
-
         }
 
 
@@ -90,8 +107,11 @@ using UnityEngine.InputSystem;
 
         private void Update()
         {
-
-           
+            // Update dash cooldown
+            if (m_DashCooldownTimer > 0)
+            {
+                m_DashCooldownTimer -= Time.deltaTime;
+            }
 
          
             if (m_Character.isGrounded)
