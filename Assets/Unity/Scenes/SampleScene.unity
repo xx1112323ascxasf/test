@@ -1098,6 +1098,8 @@ MonoBehaviour:
     MaxSpeed: 1
     Acceleration: 50
     Deceleration: 50
+  m_DashForce: 25
+  m_DashCooldown: 0.5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,9 @@ public class CharacterCamera : MonoBehaviour
 		CameraRotate();
 
 	}
+  
 
+  
 
 	public void LookCursor()
 	{

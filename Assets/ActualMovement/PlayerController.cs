@@ -60,7 +60,7 @@ using UnityEngine.InputSystem;
             m_MoveInput = new Vector3(v.x, 0f, v.y);
         }
 
-
+        
         public void OnJump(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
             if (context.started)
