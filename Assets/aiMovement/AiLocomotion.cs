@@ -26,7 +26,7 @@ namespace AiMovement
                 float sqDistance = (plaerTransform.position - agent.destination).sqrMagnitude;
                 if (sqDistance > maxDistance * maxDistance)
                 {
-                    agent.destination = plaerTransform.position;
+                    agent.destination = plaerTransform.position; 
                 }
                 agent.destination = plaerTransform.position;
             }
