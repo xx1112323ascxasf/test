@@ -1885,7 +1885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!143 &812733595
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2122,7 +2122,6 @@ GameObject:
   - component: {fileID: 889653184}
   - component: {fileID: 889653183}
   - component: {fileID: 889653185}
-  - component: {fileID: 889653186}
   m_Layer: 0
   m_Name: Simplecar
   m_TagString: Untagged
@@ -2200,21 +2199,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &889653186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889653182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f42a57878001a8db4e301655feaca9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VehicleScript
-  restLength: 0.5
-  sprntTravel: 0.3
-  wheelRadius: 0.33
 --- !u!1 &926680319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 926680320}
+  - component: {fileID: 926680321}
   m_Layer: 0
   m_Name: WheelFL
   m_TagString: Untagged
@@ -2246,6 +2231,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 889653184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &926680321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926680319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f42a57878001a8db4e301655feaca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleScript
+  restLength: 0.5
+  springTravel: 0.2
+  springStiffness: 30000
+  damperStiffness: 4000
+  wheelRadius: 0.33
 --- !u!1 &991854741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,6 +2458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1099051688}
+  - component: {fileID: 1099051689}
   m_Layer: 0
   m_Name: WheelFR
   m_TagString: Untagged
@@ -2478,6 +2481,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 889653184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1099051689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099051687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f42a57878001a8db4e301655feaca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleScript
+  restLength: 0.5
+  springTravel: 0.2
+  springStiffness: 30000
+  damperStiffness: 4000
+  wheelRadius: 0.33
 --- !u!1 &1099877736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,6 +2507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1099877737}
+  - component: {fileID: 1099877738}
   m_Layer: 0
   m_Name: WheelRR
   m_TagString: Untagged
@@ -2509,6 +2530,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 889653184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1099877738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099877736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f42a57878001a8db4e301655feaca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleScript
+  restLength: 0.5
+  springTravel: 0.2
+  springStiffness: 30000
+  damperStiffness: 4000
+  wheelRadius: 0.33
 --- !u!1 &1180302050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,6 +3944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1972752105}
+  - component: {fileID: 1972752106}
   m_Layer: 0
   m_Name: WheelRL
   m_TagString: Untagged
@@ -3928,6 +3967,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 889653184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1972752106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972752104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f42a57878001a8db4e301655feaca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleScript
+  restLength: 0.5
+  springTravel: 0.2
+  springStiffness: 30000
+  damperStiffness: 4000
+  wheelRadius: 0.33
 --- !u!1 &2007138592
 GameObject:
   m_ObjectHideFlags: 0
