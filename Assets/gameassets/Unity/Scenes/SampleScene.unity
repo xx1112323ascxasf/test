@@ -2015,6 +2015,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 866daa4b-5b3d-4a6b-9d2c-8aba21d2e3b0
     m_ActionName: 'Movement/Dash[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9a31fd2b-707c-4c33-8d3a-e1ecb0a0b82c
+    m_ActionName: 'Movement/VehicleSteering[/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
@@ -2201,7 +2205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32918c1e19a0c43f38b60cba93035315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarController
-  wheels: {fileID: 0}
+  wheels:
+  - {fileID: 1099051689}
+  - {fileID: 926680321}
+  - {fileID: 1099877738}
+  - {fileID: 1972752106}
   wheelBase: 2.35
   rearTrack: 1.5
   turnRadius: 10.8
@@ -2307,6 +2315,7 @@ MonoBehaviour:
   springStiffness: 30000
   damperStiffness: 4000
   wheelRadius: 0.33
+  steerAngle: 0
 --- !u!1 &991854741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,6 +2570,7 @@ MonoBehaviour:
   springStiffness: 30000
   damperStiffness: 4000
   wheelRadius: 0.33
+  steerAngle: 0
 --- !u!1 &1099877736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2624,7 @@ MonoBehaviour:
   springStiffness: 30000
   damperStiffness: 4000
   wheelRadius: 0.33
+  steerAngle: 0
 --- !u!1 &1180302050
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,6 +4066,7 @@ MonoBehaviour:
   springStiffness: 30000
   damperStiffness: 4000
   wheelRadius: 0.33
+  steerAngle: 0
 --- !u!1 &2007138592
 GameObject:
   m_ObjectHideFlags: 0
