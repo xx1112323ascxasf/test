@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class WheelController : MonoBehaviour
 {
     private Rigidbody rb;
 
+    
+
     public bool wheelFrontLeft;
-    public bool wheelFrontRight;
+    public bool wheelFrontRight;   
     public bool wheelRearLeft;  
     public bool wheelRearRight; 
 
@@ -31,6 +34,7 @@ public class WheelController : MonoBehaviour
 
     [Header ("Wheel")]
     public float wheelRadius;
+    public float steerAngle;
 
     void Start()
     {
@@ -41,7 +45,11 @@ public class WheelController : MonoBehaviour
 
  
     }
-
+    private void Update()
+    {
+        transform.localRotation = Quaternion.Euler(transform.localRotation.x, 
+        transform.localRotation.y + steerAngle, transform.localRotation.z);
+    }
     void FixedUpdate()
     {
         if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, maxLength + wheelRadius))

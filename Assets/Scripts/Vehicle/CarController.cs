@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class CarController : MonoBehaviour
 {
-    public WheelCollider wheels;
+    public WheelController[] wheels; // Array to hold references to the wheel controllers
+
 
     [Header("Car Specs")]
     public float wheelBase;
@@ -26,15 +27,12 @@ public class CarController : MonoBehaviour
         {
             ackermannAngleLeft = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius + rearTrack / 2)) * steerInput;
             ackermannAngleRight = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius - rearTrack / 2)) * steerInput;
-
-            
         }
         else if (steerInput < 0)
         {
             ackermannAngleLeft = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius - rearTrack / 2)) * steerInput;
             ackermannAngleRight = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius + rearTrack / 2)) * steerInput;
 
-         
         }
         else
         {
@@ -42,6 +40,17 @@ public class CarController : MonoBehaviour
             ackermannAngleRight = 0;
         }
 
+        foreach (WheelController w in wheels) // Loop through each wheel controller
+        {
+            if (w.wheelFrontLeft)
+            {
+                w.steerAngle = ackermannAngleLeft;
+            }
+            if (w.wheelFrontRight)
+            {
+                w.steerAngle = ackermannAngleRight;
+            }
+        }
 
     }
 

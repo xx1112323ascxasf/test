@@ -2206,15 +2206,6 @@ MonoBehaviour:
   rearTrack: 1.5
   turnRadius: 10.8
   steerInput: 0
-  steerAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ddf76610-cafc-4b14-813e-eafdd9148cb1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   ackermannAngleLeft: 0
   ackermannAngleRight: 0
 --- !u!114 &889653187
@@ -2307,7 +2298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f42a57878001a8db4e301655feaca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VehicleScript
-  wheelFrontLeft: 0
+  wheelFrontLeft: 1
   wheelFrontRight: 0
   wheelRearLeft: 0
   wheelRearRight: 0
@@ -2562,7 +2553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VehicleScript
   wheelFrontLeft: 0
-  wheelFrontRight: 0
+  wheelFrontRight: 1
   wheelRearLeft: 0
   wheelRearRight: 0
   restLength: 0.5
@@ -2617,7 +2608,7 @@ MonoBehaviour:
   wheelFrontLeft: 0
   wheelFrontRight: 0
   wheelRearLeft: 0
-  wheelRearRight: 0
+  wheelRearRight: 1
   restLength: 0.5
   springTravel: 0.2
   springStiffness: 30000
@@ -4057,7 +4048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VehicleScript
   wheelFrontLeft: 0
   wheelFrontRight: 0
-  wheelRearLeft: 0
+  wheelRearLeft: 1
   wheelRearRight: 0
   restLength: 0.5
   springTravel: 0.2
