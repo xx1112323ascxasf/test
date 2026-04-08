@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class Engine 
@@ -10,7 +11,7 @@ public class Engine
     public float maxRPM = 7000f;
     public float[] gearRatios = { 3.50f, 2.80f, 2.30f, 1.90f, 1.60f, 1.30f, 1.00f, 0.85f };
     public float finalDriveRatio = 4.0f;
-    private int currentGear = 0;
+    private int currentGear = 0; 
     public bool automaticTransmission = true;
     private bool switchingGears = false;
     private float gearChangeTime = 0.18f; //seconds to switch gears
@@ -203,6 +204,9 @@ public class Car : MonoBehaviour
         userInput.y = Mathf.Lerp(userInput.y, Input.GetAxisRaw("Vertical"), 0.2f);
         bool isBraking = Input.GetKey(KeyCode.S) && forwards;
         if (isBraking) userInput.y = 0;
+
+        // add bool for checking is character in vehicle for using userInput 
+    
 
         for (int i = 0; i < wheels.Length; i++)
         {
