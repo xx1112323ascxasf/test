@@ -31,4 +31,5 @@ public class Ragdoll : MonoBehaviour
     }
 
     //the whole script helping ragdoll colliders to be static 
+    //fixing error with raming on the car
 }
