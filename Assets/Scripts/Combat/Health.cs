@@ -6,10 +6,10 @@ public class Health : MonoBehaviour
 
     [HideInInspector]
     public float currentHealth;
-    Ragdoll ragdoll;
+
     void Start()
     {
-        ragdoll = GetComponent<Ragdoll>();
+    
         currentHealth = maxHealth;
 
         var rigitBodies = GetComponentsInChildren<Rigidbody>();
