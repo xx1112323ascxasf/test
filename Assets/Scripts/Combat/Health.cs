@@ -30,6 +30,8 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
-        ragdoll.ActivateRagdoll();
+        Destroy(gameObject);
+        //ragdoll.ActivateRagdoll();
+        
     }
 }

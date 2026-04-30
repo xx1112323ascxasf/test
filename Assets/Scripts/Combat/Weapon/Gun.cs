@@ -2,7 +2,7 @@ using UnityEngine;
 
 using UnityEngine.InputSystem;
 
-public class Gun : MonoBehaviour
+public class Gun : RaycastWeapon
 {
  
 }
