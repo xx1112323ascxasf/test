@@ -18,6 +18,8 @@ public class Health : MonoBehaviour
             HitBox hitBox = rigitBody.gameObject.AddComponent<HitBox>();
             hitBox.health = this; // adding to all parts of hitbox, dont need to apply manually to every part of the aienemy
         }
+
+
     }
 
     public void TakeDamage(float amount, Vector3 direction)
