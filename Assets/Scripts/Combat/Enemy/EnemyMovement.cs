@@ -5,31 +5,46 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform Target;
-
+    public float UpdateSpeed = 0.1f; // how frequently to update the path 
 
 
     [SerializeField] private Animator Animator; 
     [SerializeField] private NavMeshAgent Agent;
     private AgentLinkMover LinkMover; 
 
-    private const string IsWalking = "IsWalking";
+    private bool hasIsWalkingParameter;
+
+    public const string IsWalking = "IsWalking";
     private const string Jump = "Jump";
     private const string Landed = "Landed";
 
 
-    
-    public float UpdateSpeed = 0.1f; // how frequently to update the path 
-   
 
     private void Awake()
     {
+        if (Animator == null) Animator = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
         LinkMover = GetComponent<AgentLinkMover>();
 
-        LinkMover.OnLinkEnd += HandleLinkEnd;
-        LinkMover.OnLinkStart += HandleLinkStart;
+        if (LinkMover != null)
+        {
+            LinkMover.OnLinkEnd += HandleLinkEnd;
+            LinkMover.OnLinkStart += HandleLinkStart;
+        }
 
-        
+        hasIsWalkingParameter = false;
+        if (Animator != null)
+        {
+            var parms = Animator.parameters;
+            for (int i = 0; i < parms.Length; i++)
+            {
+                if (parms[i].name == IsWalking)
+                {
+                    hasIsWalkingParameter = true;
+                    break;
+                }
+            }
+        }
     }
 
     public void Start()
@@ -39,7 +54,8 @@ public class EnemyMovement : MonoBehaviour
     }
     public void Update()
     {
-        Animator.SetBool(IsWalking, Agent.velocity.magnitude > 0.01f);
+        if (Animator != null && hasIsWalkingParameter)
+            Animator.SetBool(IsWalking, Agent.velocity.magnitude > 0.01f);
     }
     private void HandleLinkStart()
     {
