@@ -1,17 +1,10 @@
 using UnityEngine;
 
-using System;
 
 public class RayCastForEnemy : MonoBehaviour
 {
     public Transform Player;
     public float DetectionRange = 15f;
-
-    // Create an event that other scripts can subscribe to
-    public static event Action OnPlayerDetected;
-    public static event Action OnPlayerLost;
-
-    private bool isPlayerDetected = false;
 
     void FixedUpdate()
     {
@@ -28,23 +21,9 @@ public class RayCastForEnemy : MonoBehaviour
             {
                 if (hit.transform == Player)
                 {
-                    if (!isPlayerDetected)
-                    {
-                        isPlayerDetected = true;
-                        OnPlayerDetected?.Invoke(); // Trigger event
-                        Debug.Log("Player detected!");
-                    }
-                    return;
+                    Debug.Log("Player detected!");
                 }
             }
         }
-
-        // Player is no longer detected
-        if (isPlayerDetected)
-        {
-            isPlayerDetected = false;
-            OnPlayerLost?.Invoke(); // Trigger event
-            Debug.Log("Player lost!");
-        }
     }
-}
+}  
