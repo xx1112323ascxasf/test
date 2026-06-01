@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public float UpdateSpeed = 0.1f; // how frequently to update the path 
 
 
-    [SerializeField] private NavMeshAgent Agent;
+    private NavMeshAgent Agent;
 
 
     private void Awake()

@@ -610,6 +610,8 @@ GameObject:
   - component: {fileID: 132965783}
   - component: {fileID: 132965788}
   - component: {fileID: 132965789}
+  - component: {fileID: 132965790}
+  - component: {fileID: 132965791}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -691,8 +693,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   Target: {fileID: 812733596}
-  Animator: {fileID: 1931871650}
-  Agent: {fileID: 0}
   UpdateSpeed: 0.1
 --- !u!114 &132965789
 MonoBehaviour:
@@ -740,6 +740,34 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &132965790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132965782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413e510b2a116bba79ad4c330eb87e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 10
+  currentHealth: 0
+--- !u!114 &132965791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132965782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba775390085c8e49d82a51489d37b1f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RayCastForPlayer
+  Player: {fileID: 1536725795}
+  DetectionRange: 35
 --- !u!1 &169733883
 GameObject:
   m_ObjectHideFlags: 0
