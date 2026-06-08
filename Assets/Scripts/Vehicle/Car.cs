@@ -199,6 +199,12 @@ public class Car : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
 
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            // try to connect with new unity input system 
+        }
+
         // Get player input for reference
         userInput.x = Mathf.Lerp(userInput.x, Input.GetAxisRaw("Horizontal") / (1 + rb.linearVelocity.magnitude / 28f), 0.2f);
         userInput.y = Mathf.Lerp(userInput.y, Input.GetAxisRaw("Vertical"), 0.2f);
