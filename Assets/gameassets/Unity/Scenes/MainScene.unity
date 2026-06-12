@@ -692,7 +692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   Target: {fileID: 1536725795}
   UpdateSpeed: 0.1
-  EnemyRayCast: {fileID: 0}
+  EnemyRayCast: {fileID: 1536725795}
   detectionRange: 35
 --- !u!114 &132965789
 MonoBehaviour:
