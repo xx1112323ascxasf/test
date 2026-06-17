@@ -694,8 +694,20 @@ MonoBehaviour:
   UpdateSpeed: 0.1
   EnemyRayCast: {fileID: 1536725795}
   detectionRange: 35
+  useAttack: 1
+  useDodge: 0
+  useFlee: 0
+  useChase: 1
   attackDuration: 2
   chaseDuration: 5
+  dodgeDistance: 4
+  dodgeDuration: 0.6
+  dodgeCooldown: 1.5
+  dodgeChance: 0.4
+  fleeDistance: 6
+  fleeDuration: 2
+  fleeCooldown: 3
+  fleeChance: 0.2
 --- !u!114 &132965789
 MonoBehaviour:
   m_ObjectHideFlags: 0
