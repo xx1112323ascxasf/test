@@ -10,27 +10,43 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent Agent;
     public Transform EnemyRayCast;
     public float detectionRange = 15f;
-    public float minStopTime = 1f;
-    public float maxStopTime = 3f;
 
-    private bool isStopping;
+    // Timers
+    public float attackDuration = 0.5f; // max time in attack state
+    public float chaseDuration = 3f;    // time to chase between attacks
+
+    private EnemyStateMachine stateMachine = new EnemyStateMachine();
+    private bool cycleRunning;
 
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
     }
 
-    public void Start()
+    private void Start()
     {
+        stateMachine.ChangeState(EnemyState.Chasing);
         StartCoroutine(FollowTarget());
+    }
+
+    private void Update()
+    {
+        if (EnemyRayCast == null)
+            return;
+
+        if (!cycleRunning && CanSeePlayer())
+        {
+            StartCoroutine(AttackThenChaseLoop());
+        }
     }
 
     private IEnumerator FollowTarget()
     {
         WaitForSeconds wait = new WaitForSeconds(UpdateSpeed);
+
         while (enabled)
         {
-            if (!isStopping && Target != null)
+            if (stateMachine.CurrentState == EnemyState.Chasing && Target != null)
             {
                 Agent.SetDestination(Target.position);
             }
@@ -39,47 +55,69 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private IEnumerator AttackThenChaseLoop()
     {
-        Raycast();
-    }
+        cycleRunning = true;
 
-    #region hide
-
-    public void Raycast()
-    {
-        if (EnemyRayCast == null || isStopping)
-            return;
-
-        Vector3 directionToPlayer = EnemyRayCast.position - transform.position;
-        float distanceToPlayer = directionToPlayer.magnitude;
-
-        if (distanceToPlayer <= detectionRange)
+        while (true)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, directionToPlayer.normalized, out hit, detectionRange))
+            // Attack state with timeout and early exit
+            stateMachine.ChangeState(EnemyState.Attacking);
+            Agent.isStopped = true;
+            Debug.Log("Enemy: Attacking (start)");
+
+            float attackElapsed = 0f;
+            while (attackElapsed < attackDuration)
             {
-                if (hit.transform == EnemyRayCast)
+                if (!CanSeePlayer())
                 {
-                    Debug.Log("player detected!");
-                    StartCoroutine(StopForRandomTime());
+                    Debug.Log("Enemy: lost sight during attack, breaking attack early.");
+                    break;
                 }
+
+                attackElapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            // Chase for a fixed interval
+            stateMachine.ChangeState(EnemyState.Chasing);
+            Agent.isStopped = false;
+            Debug.Log($"Enemy: Chasing for {chaseDuration:F2} seconds.");
+
+            float elapsed = 0f;
+            while (elapsed < chaseDuration)
+            {
+                if (Target != null)
+                    Agent.SetDestination(Target.position);
+
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            if (!CanSeePlayer())
+            {
+                Debug.Log("Enemy: Lost sight after chase, stopping cycle.");
+                cycleRunning = false;
+                yield break;
             }
         }
     }
 
-    private IEnumerator StopForRandomTime()
+    private bool CanSeePlayer()
     {
-        isStopping = true;
-        Agent.isStopped = true;
+        Vector3 directionToPlayer = EnemyRayCast.position - transform.position;
+        float distanceToPlayer = directionToPlayer.magnitude;
 
-        float stopDuration = Random.Range(minStopTime, maxStopTime);
-        yield return new WaitForSeconds(stopDuration);
+        if (distanceToPlayer > detectionRange)
+            return false;
 
-        Agent.isStopped = false;
-        isStopping = false;
+        if (Physics.Raycast(transform.position, directionToPlayer.normalized, out RaycastHit hit, detectionRange))
+        {
+            return hit.transform == EnemyRayCast;
+        }
+
+        return false;
     }
-
-    #endregion
 }
+ 
 
