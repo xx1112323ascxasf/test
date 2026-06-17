@@ -5,15 +5,15 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform Target;
-    [SerializeField] private float UpdateSpeed = 0.1f; // how frequently to update the path 
-
+    [SerializeField] private float UpdateSpeed = 0.1f; // how frequently to update the path
 
     private NavMeshAgent Agent;
     public Transform EnemyRayCast;
-
-   
-
     public float detectionRange = 15f;
+    public float minStopTime = 1f;
+    public float maxStopTime = 3f;
+
+    private bool isStopping;
 
     private void Awake()
     {
@@ -27,29 +27,28 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator FollowTarget()
     {
-
-        WaitForSeconds Wait = new WaitForSeconds(UpdateSpeed);
+        WaitForSeconds wait = new WaitForSeconds(UpdateSpeed);
         while (enabled)
         {
-            Agent.SetDestination(Target.transform.position);
+            if (!isStopping && Target != null)
+            {
+                Agent.SetDestination(Target.position);
+            }
 
-            yield return Wait;
+            yield return wait;
         }
     }
 
-    //3213123123
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Raycast();
     }
 
-   
-    #region hide 
-   
+    #region hide
+
     public void Raycast()
     {
-        
-        if (EnemyRayCast == null)
+        if (EnemyRayCast == null || isStopping)
             return;
 
         Vector3 directionToPlayer = EnemyRayCast.position - transform.position;
@@ -62,15 +61,25 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (hit.transform == EnemyRayCast)
                 {
-                    
                     Debug.Log("player detected!");
+                    StartCoroutine(StopForRandomTime());
                 }
             }
         }
+    }
 
+    private IEnumerator StopForRandomTime()
+    {
+        isStopping = true;
+        Agent.isStopped = true;
+
+        float stopDuration = Random.Range(minStopTime, maxStopTime);
+        yield return new WaitForSeconds(stopDuration);
+
+        Agent.isStopped = false;
+        isStopping = false;
     }
 
     #endregion
-   
 }
 
