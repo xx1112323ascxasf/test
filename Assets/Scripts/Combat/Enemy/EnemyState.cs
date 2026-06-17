@@ -3,5 +3,7 @@ public enum EnemyState
     Idle,
     Chasing,
     Paused,
-    Attacking
+    Attacking,
+    Dodge,
+    Flee
 }
