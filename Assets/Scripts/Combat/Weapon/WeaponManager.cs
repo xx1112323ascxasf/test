@@ -4,58 +4,82 @@ using UnityEngine.InputSystem;
 
 public class WeaponManager : MonoBehaviour
 {
-    [SerializeField] private RaycastWeapon[] guns;
+    // Accept any component in the inspector; must implement IWeapon at runtime
+    [SerializeField] private MonoBehaviour[] weapons;
+    private IWeapon[] iWeapons;
     private int currentWeaponIndex = 0;
-    private RaycastWeapon currentGun;
+    private IWeapon currentWeapon;
 
     private void Start()
     {
-        // If guns not assigned or contains nulls, try to auto-find RaycastWeapon components in the scene
-        if (guns == null || guns.Length == 0 || System.Array.Exists(guns, g => g == null))
+
+        // If serialized array missing or contains nulls, try to auto-find any IWeapon in scene
+        if (weapons == null || weapons.Length == 0 || System.Array.Exists(weapons, w => w == null))
         {
-            var found = FindObjectsOfType<RaycastWeapon>();
-            if (found != null && found.Length > 0)
+            var foundAll = FindObjectsOfType<MonoBehaviour>();
+            var foundList = new System.Collections.Generic.List<MonoBehaviour>();
+            foreach (var m in foundAll)
             {
-                guns = found;
-                Debug.Log($"WeaponManager: auto-populated {found.Length} weapons from scene.");
+                if (m is IWeapon)
+                    foundList.Add(m);
+            }
+
+            if (foundList.Count > 0)
+            {
+                weapons = foundList.ToArray();
+                Debug.Log($"WeaponManager: auto-populated {weapons.Length} weapons from scene.");
             }
         }
 
-        // Validate guns array
-        if (guns == null || guns.Length == 0)
+        // Validate serialized array
+        if (weapons == null || weapons.Length == 0)
         {
             Debug.LogWarning("WeaponManager: no weapons found or assigned in the inspector.");
             return;
         }
 
-        if (currentWeaponIndex < 0 || currentWeaponIndex >= guns.Length)
-            currentWeaponIndex = 0;
+        // (currentWeaponIndex clamped later against iWeapons length)
 
-        // Initialize - disable all weapons except the first non-null one (or the configured index)
+        // Build internal IWeapon array from serialized components and initialize
+        var list = new System.Collections.Generic.List<IWeapon>();
         int firstValid = -1;
-        for (int i = 0; i < guns.Length; i++)
+        for (int i = 0; i < weapons.Length; i++)
         {
-            if (guns[i] == null)
+            var mb = weapons[i];
+            if (mb == null)
+                continue;
+
+            var iw = mb as IWeapon;
+            if (iw == null)
                 continue;
 
             if (firstValid == -1)
                 firstValid = i;
 
-            guns[i].gameObject.SetActive(i == currentWeaponIndex);
+            list.Add(iw);
         }
 
-        if (firstValid == -1)
+        if (list.Count == 0)
         {
-            Debug.LogWarning("WeaponManager: all entries in guns are null.");
+            Debug.LogWarning("WeaponManager: no IWeapon implementations found in the assigned components.");
             return;
         }
 
-        // Ensure currentGun points to a valid gun
-        if (guns[currentWeaponIndex] == null)
+        iWeapons = list.ToArray();
+
+        // Clamp index and set current
+        if (currentWeaponIndex < 0 || currentWeaponIndex >= iWeapons.Length)
+            currentWeaponIndex = 0;
+
+        currentWeapon = iWeapons[currentWeaponIndex];
+        // Deactivate others and activate current
+        for (int i = 0; i < iWeapons.Length; i++)
         {
-            currentWeaponIndex = firstValid;
+            if (i == currentWeaponIndex)
+                iWeapons[i].Activate();
+            else
+                iWeapons[i].Deactivate();
         }
-        currentGun = guns[currentWeaponIndex];
     }
 
     private void Update()
@@ -80,30 +104,28 @@ public class WeaponManager : MonoBehaviour
 
     private void SwitchWeapon(int weaponIndex)
     {
-        // Validate guns array
-        if (guns == null || guns.Length == 0)
+        // Validate internal weapon list
+        if (iWeapons == null || iWeapons.Length == 0)
             return;
 
         // Validate index
-        if (weaponIndex < 0 || weaponIndex >= guns.Length)
+        if (weaponIndex < 0 || weaponIndex >= iWeapons.Length)
             return;
 
         // Don't switch if already using this weapon
         if (currentWeaponIndex == weaponIndex)
             return;
 
-        // Deactivate current weapon if valid
-        if (currentWeaponIndex >= 0 && currentWeaponIndex < guns.Length && guns[currentWeaponIndex] != null)
-        {
-            guns[currentWeaponIndex].gameObject.SetActive(false);
-        }
+        // Deactivate current
+        if (currentWeaponIndex >= 0 && currentWeaponIndex < iWeapons.Length && iWeapons[currentWeaponIndex] != null)
+            iWeapons[currentWeaponIndex].Deactivate();
 
-        // Activate new weapon if valid
-        if (guns[weaponIndex] != null)
+        // Activate new
+        if (iWeapons[weaponIndex] != null)
         {
-            guns[weaponIndex].gameObject.SetActive(true);
+            iWeapons[weaponIndex].Activate();
             currentWeaponIndex = weaponIndex;
-            currentGun = guns[weaponIndex];
+            currentWeapon = iWeapons[weaponIndex];
         }
         else
         {
@@ -111,9 +133,9 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    public RaycastWeapon GetCurrentGun()
+    public IWeapon GetCurrentGun()
     {
-        return currentGun;
+        return currentWeapon;
     }
 
     public int GetCurrentWeaponIndex()
