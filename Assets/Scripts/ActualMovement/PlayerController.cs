@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 
     [RequireComponent(typeof(CharacterController))]
-    public class Q3PlayerController : MonoBehaviour
+    public class FPPlayerController : MonoBehaviour
     {
         [System.Serializable]
         public class MovementSettings

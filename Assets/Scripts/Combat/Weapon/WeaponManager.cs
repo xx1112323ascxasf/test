@@ -13,28 +13,10 @@ public class WeaponManager : MonoBehaviour
     private void Start()
     {
 
-        // If serialized array missing or contains nulls, try to auto-find any IWeapon in scene
-        if (weapons == null || weapons.Length == 0 || System.Array.Exists(weapons, w => w == null))
-        {
-            var foundAll = FindObjectsOfType<MonoBehaviour>();
-            var foundList = new System.Collections.Generic.List<MonoBehaviour>();
-            foreach (var m in foundAll)
-            {
-                if (m is IWeapon)
-                    foundList.Add(m);
-            }
-
-            if (foundList.Count > 0)
-            {
-                weapons = foundList.ToArray();
-                Debug.Log($"WeaponManager: auto-populated {weapons.Length} weapons from scene.");
-            }
-        }
-
-        // Validate serialized array
+        // Require assignment via the Inspector. Keep setup explicit to avoid surprises.
         if (weapons == null || weapons.Length == 0)
         {
-            Debug.LogWarning("WeaponManager: no weapons found or assigned in the inspector.");
+            Debug.LogWarning("WeaponManager: assign weapon components (MonoBehaviour implementing IWeapon) in the Inspector.");
             return;
         }
 
