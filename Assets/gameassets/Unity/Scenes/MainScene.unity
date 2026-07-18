@@ -4589,8 +4589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
   guns:
-  - {fileID: 3469287836890889363}
-  - {fileID: 2706387643536489490}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 4119998062817365817}
 --- !u!4 &1534538246
 Transform:
@@ -6116,7 +6116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &486918994814686681
 Transform:
   m_ObjectHideFlags: 0
@@ -6164,7 +6164,6 @@ GameObject:
   - component: {fileID: 3469287836890889362}
   - component: {fileID: 1711813856384649304}
   - component: {fileID: 3469287836890889363}
-  - component: {fileID: 3469287836890889364}
   m_Layer: 0
   m_Name: Tactical Pistol
   m_TagString: Untagged
@@ -6288,8 +6287,7 @@ GameObject:
   - component: {fileID: 1306288723384644532}
   - component: {fileID: 2706387643536489489}
   - component: {fileID: 174499577451202779}
-  - component: {fileID: 2706387643536489490}
-  - component: {fileID: 2706387643536489491}
+  - component: {fileID: 2706387643536489492}
   m_Layer: 0
   m_Name: Pump Shotgun
   m_TagString: Untagged
@@ -6375,7 +6373,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831573070272325902}
   m_Mesh: {fileID: -4557358786919475546, guid: e7675fc8b8f5c404283e9703babf8a85, type: 3}
---- !u!114 &2706387643536489490
+--- !u!114 &2706387643536489492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6384,23 +6382,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1831573070272325902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73285069fd94716e905e6bb673fd04f, type: 3}
+  m_Script: {fileID: 11500000, guid: 423717c48b6d279dd95147085507a825, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  m_EditorClassIdentifier: Assembly-CSharp::Shotgun
   damage: 25
   knockback: 5
---- !u!114 &2706387643536489491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831573070272325902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92e0273d2dc634c9f8ac211da0c954ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestScript
+  pelletCount: 8
+  spreadAngle: 20
+  range: 30
+  muzzle: {fileID: 1306288723384644532}
+  fireRate: 1
 --- !u!4 &3141398960835966513
 Transform:
   m_ObjectHideFlags: 0
@@ -6451,28 +6442,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132148714809741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73285069fd94716e905e6bb673fd04f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6679ab3cad96b6407aee88301773edfc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  m_EditorClassIdentifier: Assembly-CSharp::HeavyPistol
   damage: 25
   knockback: 5
---- !u!114 &3469287836890889364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148714809741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6496b42418a42dc8fd96d4e0146f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pistol
-  damage: 25
-  knockback: 5
-  fireRate: 0.5
-  range: 100
+  fireRate: 1
+  range: 120
   muzzle: {fileID: 543450652974117687}
+  chargeTime: 0.5
 --- !u!23 &3686365906129527511
 MeshRenderer:
   m_ObjectHideFlags: 0
