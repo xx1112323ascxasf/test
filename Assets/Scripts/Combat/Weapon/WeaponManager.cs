@@ -13,16 +13,12 @@ public class WeaponManager : MonoBehaviour
     private void Start()
     {
 
-        // Require assignment via the Inspector. Keep setup explicit to avoid surprises.
         if (weapons == null || weapons.Length == 0)
         {
-            Debug.LogWarning("WeaponManager: assign weapon components (MonoBehaviour implementing IWeapon) in the Inspector.");
-            return;
+      
         }
 
-        // (currentWeaponIndex clamped later against iWeapons length)
 
-        // Build internal IWeapon array from serialized components and initialize
         var list = new System.Collections.Generic.List<IWeapon>();
         int firstValid = -1;
         for (int i = 0; i < weapons.Length; i++)
@@ -43,7 +39,6 @@ public class WeaponManager : MonoBehaviour
 
         if (list.Count == 0)
         {
-            Debug.LogWarning("WeaponManager: no IWeapon implementations found in the assigned components.");
             return;
         }
 
