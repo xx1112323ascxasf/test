@@ -14,10 +14,17 @@ public class HitBox : MonoBehaviour
     {
         if (weapon == null || health == null) return;
 
-        health.TakeDamage(weapon.damage, direction);
+        OnDamage(weapon.damage, weapon.knockback, direction);
+    }
+
+    public void OnDamage(float damageAmount, float knockbackAmount, Vector3 direction)
+    {
+        if (health == null) return;
+
+        health.TakeDamage(damageAmount, direction);
         if (partRigidbody != null)
         {
-            partRigidbody.AddForce(direction * weapon.knockback, ForceMode.Impulse);
+            partRigidbody.AddForce(direction * knockbackAmount, ForceMode.Impulse);
         }
     }
 }

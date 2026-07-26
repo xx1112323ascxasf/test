@@ -1989,7 +1989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &427440230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,7 +2373,7 @@ Transform:
   m_GameObject: {fileID: 628368486}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 2.303028, z: -7.8562894}
+  m_LocalPosition: {x: 6.57784, y: 1.5999999, z: -6.73267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3258,7 +3258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!143 &812733595
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3506,7 +3506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &908637741
 Transform:
   m_ObjectHideFlags: 0
@@ -4017,7 +4017,7 @@ Transform:
   m_GameObject: {fileID: 1242740730}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 2.303028, z: -7.8562894}
+  m_LocalPosition: {x: 6.57784, y: 1.5999999, z: -6.73267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4285,7 +4285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1338625838
 Transform:
   m_ObjectHideFlags: 0
@@ -5900,7 +5900,7 @@ GameObject:
   - component: {fileID: 1711813856384649304}
   - component: {fileID: 3469287836890889363}
   m_Layer: 0
-  m_Name: Tactical Pistol
+  m_Name: Heavy Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6122,11 +6122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shotgun
   damage: 25
   knockback: 5
-  pelletCount: 8
-  spreadAngle: 20
-  range: 30
-  muzzle: {fileID: 1306288723384644532}
-  fireRate: 1
 --- !u!4 &3141398960835966513
 Transform:
   m_ObjectHideFlags: 0
@@ -6182,10 +6177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeavyPistol
   damage: 25
   knockback: 5
-  fireRate: 1
-  range: 120
-  muzzle: {fileID: 543450652974117687}
-  chargeTime: 0.5
 --- !u!23 &3686365906129527511
 MeshRenderer:
   m_ObjectHideFlags: 0
