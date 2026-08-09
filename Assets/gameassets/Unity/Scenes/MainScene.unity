@@ -5844,7 +5844,6 @@ GameObject:
   - component: {fileID: 1045670732044550301}
   - component: {fileID: 4119998062817365816}
   - component: {fileID: 2218545227236785138}
-  - component: {fileID: 4119998062817365817}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -6120,6 +6119,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423717c48b6d279dd95147085507a825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shotgun
+  damage: 25
+  knockback: 5
+  projectile:
+    projectileName: ShotgunProjectile
+    speed: 20
+    lifeTime: 3
+    spawnOffset: 0.5
+    size: 0.2
+    mouseButton: 0
+    useGravity: 0
+    useSphereShape: 1
+    enableRicochet: 1
+    maxRicochets: 2
+    ricochetEnergyRetention: 0.85
+    minBounceSpeed: 0.25
 --- !u!4 &3141398960835966513
 Transform:
   m_ObjectHideFlags: 0
@@ -6259,18 +6273,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416907669576194599}
   m_Mesh: {fileID: -4437540020148438877, guid: 18b6cd37d98692b4b9e2367037b1f60a, type: 3}
---- !u!114 &4119998062817365817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416907669576194599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73285069fd94716e905e6bb673fd04f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gun
 --- !u!4 &4439663095474230417
 Transform:
   m_ObjectHideFlags: 0
