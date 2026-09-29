@@ -38,11 +38,20 @@ public class WeaponProjectile
         rigidbody.useGravity = useGravity;
         rigidbody.AddForce(origin.forward * speed, ForceMode.VelocityChange);
         projectileObject.transform.localScale = Vector3.one * size;
+        projectileObject.AddComponent<ProjectileCollisionDestroyer>();
 
         if (lifeTime > 0f)
         {
             Object.Destroy(projectileObject, lifeTime);
         }
+    }
+}
+
+public class ProjectileCollisionDestroyer : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
     }
 }
 
